@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 **external_order_sub_account_id** | **string** |  | [optional]
 **test_user** | **bool** |  | [optional]
 **newsletter** | **bool** |  | [optional]
+**segment** | **string** | Segment of the customer. Read-only, changes via the API will have no effect. Will be required in Q1 2026. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

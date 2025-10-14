@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **external_order_external_id** | **string** |  | [optional]
 **external_order_account_id** | **int** |  | [optional]
 **external_order_sub_account_id** | **string** |  | [optional]
+**marketplace** | **string** | Marketplace of the receipt. This field is read-only, changes by the API are ignored. | [optional]
 **purchase_date** | **\DateTime** | Purchase date of the receipt. | [optional]
 **delivery_date** | **\DateTime** | Delivery date of the receipt. Will be removed in Q1 2026. Please use ReceiptDate instead. | [optional]
 **receipt_date** | **\DateTime** | Date of the receipt. | [optional]
