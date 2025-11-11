@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **external_order_type** | **string** |  |
 **external_order_account_id** | **int** |  |
 **external_order_sub_account_id** | **string** |  |
+**marketplace** | **string** | Marketplace of the customer. | [optional]
 **test_user** | **bool** |  |
 **newsletter** | **bool** |  |
 **segment** | **string** | Segment of the customer. Read-only, changes via the API will have no effect. Will be required in Q1 2026. | [optional]
