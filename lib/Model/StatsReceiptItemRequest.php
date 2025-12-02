@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSearchResponse
+ * StatsReceiptItemRequest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * ProductSearchResponse Class Doc Comment
+ * StatsReceiptItemRequest Class Doc Comment
  *
  * @category Class
+ * @description Request body for statistics on receipt items.
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReceiptItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductSearchResponse';
+    protected static $openAPIModelName = 'StatsReceiptItemRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_count' => 'int',
-        'current_page' => 'int',
-        'pages_count' => 'int',
-        'page_size' => 'int',
-        'products' => '\Tid\CustomaPHP\Model\StrictProduct[]'
+        'from' => '\DateTime',
+        'to' => '\DateTime',
+        'date_field' => 'string',
+        'group_by' => 'string',
+        'filter' => '\Tid\CustomaPHP\Model\SearchFilter[]'
     ];
 
     /**
@@ -72,11 +73,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total_count' => null,
-        'current_page' => null,
-        'pages_count' => null,
-        'page_size' => null,
-        'products' => null
+        'from' => 'date-time',
+        'to' => 'date-time',
+        'date_field' => null,
+        'group_by' => null,
+        'filter' => null
     ];
 
     /**
@@ -85,11 +86,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_count' => false,
-        'current_page' => false,
-        'pages_count' => false,
-        'page_size' => false,
-        'products' => false
+        'from' => false,
+        'to' => false,
+        'date_field' => false,
+        'group_by' => false,
+        'filter' => false
     ];
 
     /**
@@ -178,11 +179,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_count' => 'TotalCount',
-        'current_page' => 'CurrentPage',
-        'pages_count' => 'PagesCount',
-        'page_size' => 'PageSize',
-        'products' => 'Products'
+        'from' => 'From',
+        'to' => 'To',
+        'date_field' => 'DateField',
+        'group_by' => 'GroupBy',
+        'filter' => 'Filter'
     ];
 
     /**
@@ -191,11 +192,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'total_count' => 'setTotalCount',
-        'current_page' => 'setCurrentPage',
-        'pages_count' => 'setPagesCount',
-        'page_size' => 'setPageSize',
-        'products' => 'setProducts'
+        'from' => 'setFrom',
+        'to' => 'setTo',
+        'date_field' => 'setDateField',
+        'group_by' => 'setGroupBy',
+        'filter' => 'setFilter'
     ];
 
     /**
@@ -204,11 +205,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'total_count' => 'getTotalCount',
-        'current_page' => 'getCurrentPage',
-        'pages_count' => 'getPagesCount',
-        'page_size' => 'getPageSize',
-        'products' => 'getProducts'
+        'from' => 'getFrom',
+        'to' => 'getTo',
+        'date_field' => 'getDateField',
+        'group_by' => 'getGroupBy',
+        'filter' => 'getFilter'
     ];
 
     /**
@@ -252,6 +253,21 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const DATE_FIELD_PURCHASE_DATE = 'PurchaseDate';
+    public const DATE_FIELD_RECEIPT_DATE = 'ReceiptDate';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDateFieldAllowableValues()
+    {
+        return [
+            self::DATE_FIELD_PURCHASE_DATE,
+            self::DATE_FIELD_RECEIPT_DATE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -268,11 +284,11 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('total_count', $data ?? [], null);
-        $this->setIfExists('current_page', $data ?? [], null);
-        $this->setIfExists('pages_count', $data ?? [], null);
-        $this->setIfExists('page_size', $data ?? [], null);
-        $this->setIfExists('products', $data ?? [], null);
+        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
+        $this->setIfExists('date_field', $data ?? [], null);
+        $this->setIfExists('group_by', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
     }
 
     /**
@@ -302,20 +318,29 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['total_count'] === null) {
-            $invalidProperties[] = "'total_count' can't be null";
+        if ($this->container['from'] === null) {
+            $invalidProperties[] = "'from' can't be null";
         }
-        if ($this->container['current_page'] === null) {
-            $invalidProperties[] = "'current_page' can't be null";
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
         }
-        if ($this->container['pages_count'] === null) {
-            $invalidProperties[] = "'pages_count' can't be null";
+        if ($this->container['date_field'] === null) {
+            $invalidProperties[] = "'date_field' can't be null";
         }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
+        $allowedValues = $this->getDateFieldAllowableValues();
+        if (!is_null($this->container['date_field']) && !in_array($this->container['date_field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'date_field', must be one of '%s'",
+                $this->container['date_field'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['products'] === null) {
-            $invalidProperties[] = "'products' can't be null";
+
+        if ($this->container['group_by'] === null) {
+            $invalidProperties[] = "'group_by' can't be null";
+        }
+        if ($this->container['filter'] === null) {
+            $invalidProperties[] = "'filter' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,136 +358,146 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets total_count
+     * Gets from
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getTotalCount()
+    public function getFrom()
     {
-        return $this->container['total_count'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets total_count
+     * Sets from
      *
-     * @param int $total_count Total number of items.
+     * @param \DateTime $from Start date for the statistics in RFC3339 format.
      *
      * @return self
      */
-    public function setTotalCount($total_count)
+    public function setFrom($from)
     {
-        if (is_null($total_count)) {
-            throw new \InvalidArgumentException('non-nullable total_count cannot be null');
+        if (is_null($from)) {
+            throw new \InvalidArgumentException('non-nullable from cannot be null');
         }
-        $this->container['total_count'] = $total_count;
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets current_page
+     * Gets to
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getCurrentPage()
+    public function getTo()
     {
-        return $this->container['current_page'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets current_page
+     * Sets to
      *
-     * @param int $current_page Current page number.
+     * @param \DateTime $to End date for the statistics in RFC3339 format.
      *
      * @return self
      */
-    public function setCurrentPage($current_page)
+    public function setTo($to)
     {
-        if (is_null($current_page)) {
-            throw new \InvalidArgumentException('non-nullable current_page cannot be null');
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
         }
-        $this->container['current_page'] = $current_page;
+        $this->container['to'] = $to;
 
         return $this;
     }
 
     /**
-     * Gets pages_count
+     * Gets date_field
      *
-     * @return int
+     * @return string
      */
-    public function getPagesCount()
+    public function getDateField()
     {
-        return $this->container['pages_count'];
+        return $this->container['date_field'];
     }
 
     /**
-     * Sets pages_count
+     * Sets date_field
      *
-     * @param int $pages_count Total number of pages.
+     * @param string $date_field Type of the date to be used for the time range and time-based grouping.
      *
      * @return self
      */
-    public function setPagesCount($pages_count)
+    public function setDateField($date_field)
     {
-        if (is_null($pages_count)) {
-            throw new \InvalidArgumentException('non-nullable pages_count cannot be null');
+        if (is_null($date_field)) {
+            throw new \InvalidArgumentException('non-nullable date_field cannot be null');
         }
-        $this->container['pages_count'] = $pages_count;
+        $allowedValues = $this->getDateFieldAllowableValues();
+        if (!in_array($date_field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'date_field', must be one of '%s'",
+                    $date_field,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['date_field'] = $date_field;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets group_by
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getGroupBy()
     {
-        return $this->container['page_size'];
+        return $this->container['group_by'];
     }
 
     /**
-     * Sets page_size
+     * Sets group_by
      *
-     * @param int $page_size Number of items per page.
+     * @param string $group_by Grouping criteria for the statistics. This may depend on dynamically configured fields. Use the stats_receipt_item_groupings endpoint to retrieve a list of available groupings.
      *
      * @return self
      */
-    public function setPageSize($page_size)
+    public function setGroupBy($group_by)
     {
-        if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
+        if (is_null($group_by)) {
+            throw new \InvalidArgumentException('non-nullable group_by cannot be null');
         }
-        $this->container['page_size'] = $page_size;
+        $this->container['group_by'] = $group_by;
 
         return $this;
     }
 
     /**
-     * Gets products
+     * Gets filter
      *
-     * @return \Tid\CustomaPHP\Model\StrictProduct[]
+     * @return \Tid\CustomaPHP\Model\SearchFilter[]
      */
-    public function getProducts()
+    public function getFilter()
     {
-        return $this->container['products'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets products
+     * Sets filter
      *
-     * @param \Tid\CustomaPHP\Model\StrictProduct[] $products List of products.
+     * @param \Tid\CustomaPHP\Model\SearchFilter[] $filter Optional filter for the statistics.
      *
      * @return self
      */
-    public function setProducts($products)
+    public function setFilter($filter)
     {
-        if (is_null($products)) {
-            throw new \InvalidArgumentException('non-nullable products cannot be null');
+        if (is_null($filter)) {
+            throw new \InvalidArgumentException('non-nullable filter cannot be null');
         }
-        $this->container['products'] = $products;
+        $this->container['filter'] = $filter;
 
         return $this;
     }

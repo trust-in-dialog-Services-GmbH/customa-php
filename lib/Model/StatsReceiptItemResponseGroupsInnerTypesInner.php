@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSearchResponse
+ * StatsReceiptItemResponseGroupsInnerTypesInner
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * ProductSearchResponse Class Doc Comment
+ * StatsReceiptItemResponseGroupsInnerTypesInner Class Doc Comment
  *
  * @category Class
+ * @description Statistics for a specific receipt type.
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReceiptItemResponseGroupsInnerTypesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductSearchResponse';
+    protected static $openAPIModelName = 'StatsReceiptItemResponse_Groups_inner_Types_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_count' => 'int',
-        'current_page' => 'int',
-        'pages_count' => 'int',
-        'page_size' => 'int',
-        'products' => '\Tid\CustomaPHP\Model\StrictProduct[]'
+        'receipt_type' => 'string',
+        'receipt_count' => 'int',
+        'customer_count' => 'int',
+        'amount' => 'int',
+        'revenue' => '\Tid\CustomaPHP\Model\Price',
+        'cost_of_goods_sold' => '\Tid\CustomaPHP\Model\Price'
     ];
 
     /**
@@ -72,11 +74,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total_count' => null,
-        'current_page' => null,
-        'pages_count' => null,
-        'page_size' => null,
-        'products' => null
+        'receipt_type' => null,
+        'receipt_count' => null,
+        'customer_count' => null,
+        'amount' => null,
+        'revenue' => null,
+        'cost_of_goods_sold' => null
     ];
 
     /**
@@ -85,11 +88,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_count' => false,
-        'current_page' => false,
-        'pages_count' => false,
-        'page_size' => false,
-        'products' => false
+        'receipt_type' => false,
+        'receipt_count' => false,
+        'customer_count' => false,
+        'amount' => false,
+        'revenue' => false,
+        'cost_of_goods_sold' => false
     ];
 
     /**
@@ -178,11 +182,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_count' => 'TotalCount',
-        'current_page' => 'CurrentPage',
-        'pages_count' => 'PagesCount',
-        'page_size' => 'PageSize',
-        'products' => 'Products'
+        'receipt_type' => 'ReceiptType',
+        'receipt_count' => 'ReceiptCount',
+        'customer_count' => 'CustomerCount',
+        'amount' => 'Amount',
+        'revenue' => 'Revenue',
+        'cost_of_goods_sold' => 'CostOfGoodsSold'
     ];
 
     /**
@@ -191,11 +196,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'total_count' => 'setTotalCount',
-        'current_page' => 'setCurrentPage',
-        'pages_count' => 'setPagesCount',
-        'page_size' => 'setPageSize',
-        'products' => 'setProducts'
+        'receipt_type' => 'setReceiptType',
+        'receipt_count' => 'setReceiptCount',
+        'customer_count' => 'setCustomerCount',
+        'amount' => 'setAmount',
+        'revenue' => 'setRevenue',
+        'cost_of_goods_sold' => 'setCostOfGoodsSold'
     ];
 
     /**
@@ -204,11 +210,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'total_count' => 'getTotalCount',
-        'current_page' => 'getCurrentPage',
-        'pages_count' => 'getPagesCount',
-        'page_size' => 'getPageSize',
-        'products' => 'getProducts'
+        'receipt_type' => 'getReceiptType',
+        'receipt_count' => 'getReceiptCount',
+        'customer_count' => 'getCustomerCount',
+        'amount' => 'getAmount',
+        'revenue' => 'getRevenue',
+        'cost_of_goods_sold' => 'getCostOfGoodsSold'
     ];
 
     /**
@@ -268,11 +275,12 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('total_count', $data ?? [], null);
-        $this->setIfExists('current_page', $data ?? [], null);
-        $this->setIfExists('pages_count', $data ?? [], null);
-        $this->setIfExists('page_size', $data ?? [], null);
-        $this->setIfExists('products', $data ?? [], null);
+        $this->setIfExists('receipt_type', $data ?? [], null);
+        $this->setIfExists('receipt_count', $data ?? [], null);
+        $this->setIfExists('customer_count', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('revenue', $data ?? [], null);
+        $this->setIfExists('cost_of_goods_sold', $data ?? [], null);
     }
 
     /**
@@ -302,20 +310,20 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['total_count'] === null) {
-            $invalidProperties[] = "'total_count' can't be null";
+        if ($this->container['receipt_type'] === null) {
+            $invalidProperties[] = "'receipt_type' can't be null";
         }
-        if ($this->container['current_page'] === null) {
-            $invalidProperties[] = "'current_page' can't be null";
+        if ($this->container['receipt_count'] === null) {
+            $invalidProperties[] = "'receipt_count' can't be null";
         }
-        if ($this->container['pages_count'] === null) {
-            $invalidProperties[] = "'pages_count' can't be null";
+        if ($this->container['customer_count'] === null) {
+            $invalidProperties[] = "'customer_count' can't be null";
         }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
+        if ($this->container['revenue'] === null) {
+            $invalidProperties[] = "'revenue' can't be null";
         }
-        if ($this->container['products'] === null) {
-            $invalidProperties[] = "'products' can't be null";
+        if ($this->container['cost_of_goods_sold'] === null) {
+            $invalidProperties[] = "'cost_of_goods_sold' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,136 +341,163 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets total_count
+     * Gets receipt_type
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getReceiptType()
     {
-        return $this->container['total_count'];
+        return $this->container['receipt_type'];
     }
 
     /**
-     * Sets total_count
+     * Sets receipt_type
      *
-     * @param int $total_count Total number of items.
+     * @param string $receipt_type Type of the receipt.
      *
      * @return self
      */
-    public function setTotalCount($total_count)
+    public function setReceiptType($receipt_type)
     {
-        if (is_null($total_count)) {
-            throw new \InvalidArgumentException('non-nullable total_count cannot be null');
+        if (is_null($receipt_type)) {
+            throw new \InvalidArgumentException('non-nullable receipt_type cannot be null');
         }
-        $this->container['total_count'] = $total_count;
+        $this->container['receipt_type'] = $receipt_type;
 
         return $this;
     }
 
     /**
-     * Gets current_page
+     * Gets receipt_count
      *
      * @return int
      */
-    public function getCurrentPage()
+    public function getReceiptCount()
     {
-        return $this->container['current_page'];
+        return $this->container['receipt_count'];
     }
 
     /**
-     * Sets current_page
+     * Sets receipt_count
      *
-     * @param int $current_page Current page number.
+     * @param int $receipt_count Number of receipts of this type in this group.
      *
      * @return self
      */
-    public function setCurrentPage($current_page)
+    public function setReceiptCount($receipt_count)
     {
-        if (is_null($current_page)) {
-            throw new \InvalidArgumentException('non-nullable current_page cannot be null');
+        if (is_null($receipt_count)) {
+            throw new \InvalidArgumentException('non-nullable receipt_count cannot be null');
         }
-        $this->container['current_page'] = $current_page;
+        $this->container['receipt_count'] = $receipt_count;
 
         return $this;
     }
 
     /**
-     * Gets pages_count
+     * Gets customer_count
      *
      * @return int
      */
-    public function getPagesCount()
+    public function getCustomerCount()
     {
-        return $this->container['pages_count'];
+        return $this->container['customer_count'];
     }
 
     /**
-     * Sets pages_count
+     * Sets customer_count
      *
-     * @param int $pages_count Total number of pages.
+     * @param int $customer_count Number of unique customers with the receipt type in this group.
      *
      * @return self
      */
-    public function setPagesCount($pages_count)
+    public function setCustomerCount($customer_count)
     {
-        if (is_null($pages_count)) {
-            throw new \InvalidArgumentException('non-nullable pages_count cannot be null');
+        if (is_null($customer_count)) {
+            throw new \InvalidArgumentException('non-nullable customer_count cannot be null');
         }
-        $this->container['pages_count'] = $pages_count;
+        $this->container['customer_count'] = $customer_count;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets amount
      *
-     * @return int
+     * @return int|null
      */
-    public function getPageSize()
+    public function getAmount()
     {
-        return $this->container['page_size'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets page_size
+     * Sets amount
      *
-     * @param int $page_size Number of items per page.
+     * @param int|null $amount Sum of the amount of items in the receipt positions.
      *
      * @return self
      */
-    public function setPageSize($page_size)
+    public function setAmount($amount)
     {
-        if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['page_size'] = $page_size;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets products
+     * Gets revenue
      *
-     * @return \Tid\CustomaPHP\Model\StrictProduct[]
+     * @return \Tid\CustomaPHP\Model\Price
      */
-    public function getProducts()
+    public function getRevenue()
     {
-        return $this->container['products'];
+        return $this->container['revenue'];
     }
 
     /**
-     * Sets products
+     * Sets revenue
      *
-     * @param \Tid\CustomaPHP\Model\StrictProduct[] $products List of products.
+     * @param \Tid\CustomaPHP\Model\Price $revenue revenue
      *
      * @return self
      */
-    public function setProducts($products)
+    public function setRevenue($revenue)
     {
-        if (is_null($products)) {
-            throw new \InvalidArgumentException('non-nullable products cannot be null');
+        if (is_null($revenue)) {
+            throw new \InvalidArgumentException('non-nullable revenue cannot be null');
         }
-        $this->container['products'] = $products;
+        $this->container['revenue'] = $revenue;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_of_goods_sold
+     *
+     * @return \Tid\CustomaPHP\Model\Price
+     */
+    public function getCostOfGoodsSold()
+    {
+        return $this->container['cost_of_goods_sold'];
+    }
+
+    /**
+     * Sets cost_of_goods_sold
+     *
+     * @param \Tid\CustomaPHP\Model\Price $cost_of_goods_sold cost_of_goods_sold
+     *
+     * @return self
+     */
+    public function setCostOfGoodsSold($cost_of_goods_sold)
+    {
+        if (is_null($cost_of_goods_sold)) {
+            throw new \InvalidArgumentException('non-nullable cost_of_goods_sold cannot be null');
+        }
+        $this->container['cost_of_goods_sold'] = $cost_of_goods_sold;
 
         return $this;
     }

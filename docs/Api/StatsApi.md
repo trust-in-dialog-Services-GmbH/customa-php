@@ -4,8 +4,10 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**statsReceipt()**](StatsApi.md#statsReceipt) | **POST** /api/v3/stats/receipt | Calculates statistics about the receipts. |
+| [**statsReceipt()**](StatsApi.md#statsReceipt) | **POST** /api/v3/stats/receipt | Calculates receipt statistics |
 | [**statsReceiptGroupings()**](StatsApi.md#statsReceiptGroupings) | **GET** /api/v3/stats/receipt/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptItem()**](StatsApi.md#statsReceiptItem) | **POST** /api/v3/stats/receipt_item | Calculates receipt item statistics |
+| [**statsReceiptItemGroupings()**](StatsApi.md#statsReceiptItemGroupings) | **GET** /api/v3/stats/receipt_item/groupings | Returns a list of grouping options for receipt statistics. |
 
 
 ## `statsReceipt()`
@@ -14,7 +16,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 statsReceipt($stats_receipt_request): \Tid\CustomaPHP\Model\StatsReceiptResponse
 ```
 
-Calculates statistics about the receipts.
+Calculates receipt statistics
 
 ### Example
 
@@ -97,6 +99,119 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatsApi->statsReceiptGroupings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\ChoicesResponse**](../Model/ChoicesResponse.md)
+
+### Authorization
+
+[Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItem()`
+
+```php
+statsReceiptItem($stats_receipt_item_request): \Tid\CustomaPHP\Model\StatsReceiptItemResponse
+```
+
+Calculates receipt item statistics
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$stats_receipt_item_request = new \Tid\CustomaPHP\Model\StatsReceiptItemRequest(); // \Tid\CustomaPHP\Model\StatsReceiptItemRequest | Request body for receipt item statistics.
+
+try {
+    $result = $apiInstance->statsReceiptItem($stats_receipt_item_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **stats_receipt_item_request** | [**\Tid\CustomaPHP\Model\StatsReceiptItemRequest**](../Model/StatsReceiptItemRequest.md)| Request body for receipt item statistics. | [optional] |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsReceiptItemResponse**](../Model/StatsReceiptItemResponse.md)
+
+### Authorization
+
+[Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemGroupings()`
+
+```php
+statsReceiptItemGroupings(): \Tid\CustomaPHP\Model\ChoicesResponse
+```
+
+Returns a list of grouping options for receipt statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->statsReceiptItemGroupings();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItemGroupings: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

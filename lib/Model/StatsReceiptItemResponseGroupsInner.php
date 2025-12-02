@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSearchResponse
+ * StatsReceiptItemResponseGroupsInner
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * ProductSearchResponse Class Doc Comment
+ * StatsReceiptItemResponseGroupsInner Class Doc Comment
  *
  * @category Class
+ * @description Group with statistics.
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatsReceiptItemResponseGroupsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductSearchResponse';
+    protected static $openAPIModelName = 'StatsReceiptItemResponse_Groups_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_count' => 'int',
-        'current_page' => 'int',
-        'pages_count' => 'int',
-        'page_size' => 'int',
-        'products' => '\Tid\CustomaPHP\Model\StrictProduct[]'
+        'group_key' => 'string',
+        'group_name' => 'string',
+        'types' => '\Tid\CustomaPHP\Model\StatsReceiptItemResponseGroupsInnerTypesInner[]'
     ];
 
     /**
@@ -72,11 +71,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total_count' => null,
-        'current_page' => null,
-        'pages_count' => null,
-        'page_size' => null,
-        'products' => null
+        'group_key' => null,
+        'group_name' => null,
+        'types' => null
     ];
 
     /**
@@ -85,11 +82,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_count' => false,
-        'current_page' => false,
-        'pages_count' => false,
-        'page_size' => false,
-        'products' => false
+        'group_key' => false,
+        'group_name' => false,
+        'types' => false
     ];
 
     /**
@@ -178,11 +173,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_count' => 'TotalCount',
-        'current_page' => 'CurrentPage',
-        'pages_count' => 'PagesCount',
-        'page_size' => 'PageSize',
-        'products' => 'Products'
+        'group_key' => 'GroupKey',
+        'group_name' => 'GroupName',
+        'types' => 'Types'
     ];
 
     /**
@@ -191,11 +184,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'total_count' => 'setTotalCount',
-        'current_page' => 'setCurrentPage',
-        'pages_count' => 'setPagesCount',
-        'page_size' => 'setPageSize',
-        'products' => 'setProducts'
+        'group_key' => 'setGroupKey',
+        'group_name' => 'setGroupName',
+        'types' => 'setTypes'
     ];
 
     /**
@@ -204,11 +195,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'total_count' => 'getTotalCount',
-        'current_page' => 'getCurrentPage',
-        'pages_count' => 'getPagesCount',
-        'page_size' => 'getPageSize',
-        'products' => 'getProducts'
+        'group_key' => 'getGroupKey',
+        'group_name' => 'getGroupName',
+        'types' => 'getTypes'
     ];
 
     /**
@@ -268,11 +257,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('total_count', $data ?? [], null);
-        $this->setIfExists('current_page', $data ?? [], null);
-        $this->setIfExists('pages_count', $data ?? [], null);
-        $this->setIfExists('page_size', $data ?? [], null);
-        $this->setIfExists('products', $data ?? [], null);
+        $this->setIfExists('group_key', $data ?? [], null);
+        $this->setIfExists('group_name', $data ?? [], null);
+        $this->setIfExists('types', $data ?? [], null);
     }
 
     /**
@@ -302,20 +289,14 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['total_count'] === null) {
-            $invalidProperties[] = "'total_count' can't be null";
+        if ($this->container['group_key'] === null) {
+            $invalidProperties[] = "'group_key' can't be null";
         }
-        if ($this->container['current_page'] === null) {
-            $invalidProperties[] = "'current_page' can't be null";
+        if ($this->container['group_name'] === null) {
+            $invalidProperties[] = "'group_name' can't be null";
         }
-        if ($this->container['pages_count'] === null) {
-            $invalidProperties[] = "'pages_count' can't be null";
-        }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
-        }
-        if ($this->container['products'] === null) {
-            $invalidProperties[] = "'products' can't be null";
+        if ($this->container['types'] === null) {
+            $invalidProperties[] = "'types' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,136 +314,82 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets total_count
+     * Gets group_key
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getGroupKey()
     {
-        return $this->container['total_count'];
+        return $this->container['group_key'];
     }
 
     /**
-     * Sets total_count
+     * Sets group_key
      *
-     * @param int $total_count Total number of items.
+     * @param string $group_key Key for the group, use this when processing the response client-side.
      *
      * @return self
      */
-    public function setTotalCount($total_count)
+    public function setGroupKey($group_key)
     {
-        if (is_null($total_count)) {
-            throw new \InvalidArgumentException('non-nullable total_count cannot be null');
+        if (is_null($group_key)) {
+            throw new \InvalidArgumentException('non-nullable group_key cannot be null');
         }
-        $this->container['total_count'] = $total_count;
+        $this->container['group_key'] = $group_key;
 
         return $this;
     }
 
     /**
-     * Gets current_page
+     * Gets group_name
      *
-     * @return int
+     * @return string
      */
-    public function getCurrentPage()
+    public function getGroupName()
     {
-        return $this->container['current_page'];
+        return $this->container['group_name'];
     }
 
     /**
-     * Sets current_page
+     * Sets group_name
      *
-     * @param int $current_page Current page number.
+     * @param string $group_name Group name, only used for display. _Never_ use this for anything else than display.
      *
      * @return self
      */
-    public function setCurrentPage($current_page)
+    public function setGroupName($group_name)
     {
-        if (is_null($current_page)) {
-            throw new \InvalidArgumentException('non-nullable current_page cannot be null');
+        if (is_null($group_name)) {
+            throw new \InvalidArgumentException('non-nullable group_name cannot be null');
         }
-        $this->container['current_page'] = $current_page;
+        $this->container['group_name'] = $group_name;
 
         return $this;
     }
 
     /**
-     * Gets pages_count
+     * Gets types
      *
-     * @return int
+     * @return \Tid\CustomaPHP\Model\StatsReceiptItemResponseGroupsInnerTypesInner[]
      */
-    public function getPagesCount()
+    public function getTypes()
     {
-        return $this->container['pages_count'];
+        return $this->container['types'];
     }
 
     /**
-     * Sets pages_count
+     * Sets types
      *
-     * @param int $pages_count Total number of pages.
+     * @param \Tid\CustomaPHP\Model\StatsReceiptItemResponseGroupsInnerTypesInner[] $types List of receipt types with statistics.
      *
      * @return self
      */
-    public function setPagesCount($pages_count)
+    public function setTypes($types)
     {
-        if (is_null($pages_count)) {
-            throw new \InvalidArgumentException('non-nullable pages_count cannot be null');
+        if (is_null($types)) {
+            throw new \InvalidArgumentException('non-nullable types cannot be null');
         }
-        $this->container['pages_count'] = $pages_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size Number of items per page.
-     *
-     * @return self
-     */
-    public function setPageSize($page_size)
-    {
-        if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
-        }
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets products
-     *
-     * @return \Tid\CustomaPHP\Model\StrictProduct[]
-     */
-    public function getProducts()
-    {
-        return $this->container['products'];
-    }
-
-    /**
-     * Sets products
-     *
-     * @param \Tid\CustomaPHP\Model\StrictProduct[] $products List of products.
-     *
-     * @return self
-     */
-    public function setProducts($products)
-    {
-        if (is_null($products)) {
-            throw new \InvalidArgumentException('non-nullable products cannot be null');
-        }
-        $this->container['products'] = $products;
+        $this->container['types'] = $types;
 
         return $this;
     }

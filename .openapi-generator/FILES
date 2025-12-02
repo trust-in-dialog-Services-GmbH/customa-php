@@ -26,6 +26,10 @@ docs/Model/ReceiptItem.md
 docs/Model/ReceiptSearchResponse.md
 docs/Model/SearchFilter.md
 docs/Model/SearchRequest.md
+docs/Model/StatsReceiptItemRequest.md
+docs/Model/StatsReceiptItemResponse.md
+docs/Model/StatsReceiptItemResponseGroupsInner.md
+docs/Model/StatsReceiptItemResponseGroupsInnerTypesInner.md
 docs/Model/StatsReceiptRequest.md
 docs/Model/StatsReceiptResponse.md
 docs/Model/StatsReceiptResponseGroupsInner.md
@@ -66,6 +70,10 @@ lib/Model/ReceiptItem.php
 lib/Model/ReceiptSearchResponse.php
 lib/Model/SearchFilter.php
 lib/Model/SearchRequest.php
+lib/Model/StatsReceiptItemRequest.php
+lib/Model/StatsReceiptItemResponse.php
+lib/Model/StatsReceiptItemResponseGroupsInner.php
+lib/Model/StatsReceiptItemResponseGroupsInnerTypesInner.php
 lib/Model/StatsReceiptRequest.php
 lib/Model/StatsReceiptResponse.php
 lib/Model/StatsReceiptResponseGroupsInner.php
@@ -77,3 +85,5 @@ lib/Model/StrictReceiptItem.php
 lib/Model/Timestamped.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/StatsReceiptItemResponseGroupsInnerTest.php
+test/Model/StatsReceiptItemResponseGroupsInnerTypesInnerTest.php
