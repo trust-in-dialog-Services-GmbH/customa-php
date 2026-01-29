@@ -1,6 +1,6 @@
 <?php
 /**
- * SearchApi
+ * OauthApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use Tid\CustomaPHP\HeaderSelector;
 use Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * SearchApi Class Doc Comment
+ * OauthApi Class Doc Comment
  *
  * @category Class
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SearchApi
+class OauthApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class SearchApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'search' => [
+        'oauthValidate' => [
             'application/json',
         ],
     ];
@@ -126,40 +126,42 @@ class SearchApi
     }
 
     /**
-     * Operation search
+     * Operation oauthValidate
      *
-     * Searches for entities by the given filters.
+     * Internal API: Check the validity of OAuth credentials for a given app.
      *
-     * @param  \Tid\CustomaPHP\Model\SearchRequest $search_request search_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['search'] to see the possible values for this operation
+     * @param  string $app app (required)
+     * @param  \Tid\CustomaPHP\Model\OAuthValidationRequest $o_auth_validation_request o_auth_validation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthValidate'] to see the possible values for this operation
      *
      * @throws \Tid\CustomaPHP\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Tid\CustomaPHP\Model\LegacySearchResponse
+     * @return \Tid\CustomaPHP\Model\OAuthValidationResponse|\Tid\CustomaPHP\Model\ErrorResponse|\Tid\CustomaPHP\Model\ErrorResponse
      * @deprecated
      */
-    public function search($search_request, string $contentType = self::contentTypes['search'][0])
+    public function oauthValidate($app, $o_auth_validation_request, string $contentType = self::contentTypes['oauthValidate'][0])
     {
-        list($response) = $this->searchWithHttpInfo($search_request, $contentType);
+        list($response) = $this->oauthValidateWithHttpInfo($app, $o_auth_validation_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchWithHttpInfo
+     * Operation oauthValidateWithHttpInfo
      *
-     * Searches for entities by the given filters.
+     * Internal API: Check the validity of OAuth credentials for a given app.
      *
-     * @param  \Tid\CustomaPHP\Model\SearchRequest $search_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['search'] to see the possible values for this operation
+     * @param  string $app (required)
+     * @param  \Tid\CustomaPHP\Model\OAuthValidationRequest $o_auth_validation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthValidate'] to see the possible values for this operation
      *
      * @throws \Tid\CustomaPHP\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Tid\CustomaPHP\Model\LegacySearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Tid\CustomaPHP\Model\OAuthValidationResponse|\Tid\CustomaPHP\Model\ErrorResponse|\Tid\CustomaPHP\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function searchWithHttpInfo($search_request, string $contentType = self::contentTypes['search'][0])
+    public function oauthValidateWithHttpInfo($app, $o_auth_validation_request, string $contentType = self::contentTypes['oauthValidate'][0])
     {
-        $request = $this->searchRequest($search_request, $contentType);
+        $request = $this->oauthValidateRequest($app, $o_auth_validation_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,7 +189,19 @@ class SearchApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Tid\CustomaPHP\Model\LegacySearchResponse',
+                        '\Tid\CustomaPHP\Model\OAuthValidationResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Tid\CustomaPHP\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\Tid\CustomaPHP\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -209,7 +223,7 @@ class SearchApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Tid\CustomaPHP\Model\LegacySearchResponse',
+                '\Tid\CustomaPHP\Model\OAuthValidationResponse',
                 $request,
                 $response,
             );
@@ -218,7 +232,23 @@ class SearchApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Tid\CustomaPHP\Model\LegacySearchResponse',
+                        '\Tid\CustomaPHP\Model\OAuthValidationResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tid\CustomaPHP\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tid\CustomaPHP\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -231,20 +261,21 @@ class SearchApi
     }
 
     /**
-     * Operation searchAsync
+     * Operation oauthValidateAsync
      *
-     * Searches for entities by the given filters.
+     * Internal API: Check the validity of OAuth credentials for a given app.
      *
-     * @param  \Tid\CustomaPHP\Model\SearchRequest $search_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['search'] to see the possible values for this operation
+     * @param  string $app (required)
+     * @param  \Tid\CustomaPHP\Model\OAuthValidationRequest $o_auth_validation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthValidate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function searchAsync($search_request, string $contentType = self::contentTypes['search'][0])
+    public function oauthValidateAsync($app, $o_auth_validation_request, string $contentType = self::contentTypes['oauthValidate'][0])
     {
-        return $this->searchAsyncWithHttpInfo($search_request, $contentType)
+        return $this->oauthValidateAsyncWithHttpInfo($app, $o_auth_validation_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -253,21 +284,22 @@ class SearchApi
     }
 
     /**
-     * Operation searchAsyncWithHttpInfo
+     * Operation oauthValidateAsyncWithHttpInfo
      *
-     * Searches for entities by the given filters.
+     * Internal API: Check the validity of OAuth credentials for a given app.
      *
-     * @param  \Tid\CustomaPHP\Model\SearchRequest $search_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['search'] to see the possible values for this operation
+     * @param  string $app (required)
+     * @param  \Tid\CustomaPHP\Model\OAuthValidationRequest $o_auth_validation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthValidate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function searchAsyncWithHttpInfo($search_request, string $contentType = self::contentTypes['search'][0])
+    public function oauthValidateAsyncWithHttpInfo($app, $o_auth_validation_request, string $contentType = self::contentTypes['oauthValidate'][0])
     {
-        $returnType = '\Tid\CustomaPHP\Model\LegacySearchResponse';
-        $request = $this->searchRequest($search_request, $contentType);
+        $returnType = '\Tid\CustomaPHP\Model\OAuthValidationResponse';
+        $request = $this->oauthValidateRequest($app, $o_auth_validation_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -306,27 +338,35 @@ class SearchApi
     }
 
     /**
-     * Create request for operation 'search'
+     * Create request for operation 'oauthValidate'
      *
-     * @param  \Tid\CustomaPHP\Model\SearchRequest $search_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['search'] to see the possible values for this operation
+     * @param  string $app (required)
+     * @param  \Tid\CustomaPHP\Model\OAuthValidationRequest $o_auth_validation_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthValidate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function searchRequest($search_request, string $contentType = self::contentTypes['search'][0])
+    public function oauthValidateRequest($app, $o_auth_validation_request, string $contentType = self::contentTypes['oauthValidate'][0])
     {
 
-        // verify the required parameter 'search_request' is set
-        if ($search_request === null || (is_array($search_request) && count($search_request) === 0)) {
+        // verify the required parameter 'app' is set
+        if ($app === null || (is_array($app) && count($app) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $search_request when calling search'
+                'Missing the required parameter $app when calling oauthValidate'
+            );
+        }
+
+        // verify the required parameter 'o_auth_validation_request' is set
+        if ($o_auth_validation_request === null || (is_array($o_auth_validation_request) && count($o_auth_validation_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $o_auth_validation_request when calling oauthValidate'
             );
         }
 
 
-        $resourcePath = '/api/v3/search';
+        $resourcePath = '/api/v3/oauth/{app}/validate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -335,6 +375,14 @@ class SearchApi
 
 
 
+        // path params
+        if ($app !== null) {
+            $resourcePath = str_replace(
+                '{' . 'app' . '}',
+                ObjectSerializer::toPathValue($app),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -344,12 +392,12 @@ class SearchApi
         );
 
         // for model (json/xml)
-        if (isset($search_request)) {
+        if (isset($o_auth_validation_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($search_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_validation_request));
             } else {
-                $httpBody = $search_request;
+                $httpBody = $o_auth_validation_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

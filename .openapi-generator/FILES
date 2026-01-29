@@ -3,6 +3,7 @@
 composer.json
 docs/Api/AuthApi.md
 docs/Api/CustomerApi.md
+docs/Api/OauthApi.md
 docs/Api/ProductApi.md
 docs/Api/ReceiptApi.md
 docs/Api/SearchApi.md
@@ -18,6 +19,8 @@ docs/Model/CustomerSearchResponse.md
 docs/Model/ErrorResponse.md
 docs/Model/ItemCreatedResponse.md
 docs/Model/LegacySearchResponse.md
+docs/Model/OAuthValidationRequest.md
+docs/Model/OAuthValidationResponse.md
 docs/Model/Price.md
 docs/Model/Product.md
 docs/Model/ProductSearchResponse.md
@@ -42,6 +45,7 @@ docs/Model/Timestamped.md
 git_push.sh
 lib/Api/AuthApi.php
 lib/Api/CustomerApi.php
+lib/Api/OauthApi.php
 lib/Api/ProductApi.php
 lib/Api/ReceiptApi.php
 lib/Api/SearchApi.php
@@ -62,6 +66,8 @@ lib/Model/ErrorResponse.php
 lib/Model/ItemCreatedResponse.php
 lib/Model/LegacySearchResponse.php
 lib/Model/ModelInterface.php
+lib/Model/OAuthValidationRequest.php
+lib/Model/OAuthValidationResponse.php
 lib/Model/Price.php
 lib/Model/Product.php
 lib/Model/ProductSearchResponse.php
@@ -85,5 +91,6 @@ lib/Model/StrictReceiptItem.php
 lib/Model/Timestamped.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/StatsReceiptItemResponseGroupsInnerTest.php
-test/Model/StatsReceiptItemResponseGroupsInnerTypesInnerTest.php
+test/Api/OauthApiTest.php
+test/Model/OAuthValidationRequestTest.php
+test/Model/OAuthValidationResponseTest.php

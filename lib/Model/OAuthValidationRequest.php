@@ -1,6 +1,6 @@
 <?php
 /**
- * ReceiptSearchResponse
+ * OAuthValidationRequest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * ReceiptSearchResponse Class Doc Comment
+ * OAuthValidationRequest Class Doc Comment
  *
  * @category Class
+ * @description Request body for OAuth Token validation.
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class OAuthValidationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReceiptSearchResponse';
+    protected static $openAPIModelName = 'OAuthValidationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_count' => 'int',
-        'current_page' => 'int',
-        'pages_count' => 'int',
-        'page_size' => 'int',
-        'receipts' => '\Tid\CustomaPHP\Model\StrictReceipt[]'
+        'client_id' => 'string',
+        'secret' => 'string'
     ];
 
     /**
@@ -72,11 +70,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total_count' => null,
-        'current_page' => null,
-        'pages_count' => null,
-        'page_size' => null,
-        'receipts' => null
+        'client_id' => null,
+        'secret' => null
     ];
 
     /**
@@ -85,11 +80,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_count' => false,
-        'current_page' => false,
-        'pages_count' => false,
-        'page_size' => false,
-        'receipts' => false
+        'client_id' => false,
+        'secret' => false
     ];
 
     /**
@@ -178,11 +170,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_count' => 'TotalCount',
-        'current_page' => 'CurrentPage',
-        'pages_count' => 'PagesCount',
-        'page_size' => 'PageSize',
-        'receipts' => 'Receipts'
+        'client_id' => 'ClientID',
+        'secret' => 'Secret'
     ];
 
     /**
@@ -191,11 +180,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'total_count' => 'setTotalCount',
-        'current_page' => 'setCurrentPage',
-        'pages_count' => 'setPagesCount',
-        'page_size' => 'setPageSize',
-        'receipts' => 'setReceipts'
+        'client_id' => 'setClientId',
+        'secret' => 'setSecret'
     ];
 
     /**
@@ -204,11 +190,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'total_count' => 'getTotalCount',
-        'current_page' => 'getCurrentPage',
-        'pages_count' => 'getPagesCount',
-        'page_size' => 'getPageSize',
-        'receipts' => 'getReceipts'
+        'client_id' => 'getClientId',
+        'secret' => 'getSecret'
     ];
 
     /**
@@ -268,11 +251,8 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('total_count', $data ?? [], null);
-        $this->setIfExists('current_page', $data ?? [], null);
-        $this->setIfExists('pages_count', $data ?? [], null);
-        $this->setIfExists('page_size', $data ?? [], null);
-        $this->setIfExists('receipts', $data ?? [], null);
+        $this->setIfExists('client_id', $data ?? [], null);
+        $this->setIfExists('secret', $data ?? [], null);
     }
 
     /**
@@ -302,20 +282,11 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['total_count'] === null) {
-            $invalidProperties[] = "'total_count' can't be null";
+        if ($this->container['client_id'] === null) {
+            $invalidProperties[] = "'client_id' can't be null";
         }
-        if ($this->container['current_page'] === null) {
-            $invalidProperties[] = "'current_page' can't be null";
-        }
-        if ($this->container['pages_count'] === null) {
-            $invalidProperties[] = "'pages_count' can't be null";
-        }
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
-        }
-        if ($this->container['receipts'] === null) {
-            $invalidProperties[] = "'receipts' can't be null";
+        if ($this->container['secret'] === null) {
+            $invalidProperties[] = "'secret' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,136 +304,55 @@ class ReceiptSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets total_count
+     * Gets client_id
      *
-     * @return int
+     * @return string
      */
-    public function getTotalCount()
+    public function getClientId()
     {
-        return $this->container['total_count'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets total_count
+     * Sets client_id
      *
-     * @param int $total_count Total number of items.
+     * @param string $client_id OAuth Client ID.
      *
      * @return self
      */
-    public function setTotalCount($total_count)
+    public function setClientId($client_id)
     {
-        if (is_null($total_count)) {
-            throw new \InvalidArgumentException('non-nullable total_count cannot be null');
+        if (is_null($client_id)) {
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
-        $this->container['total_count'] = $total_count;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
 
     /**
-     * Gets current_page
+     * Gets secret
      *
-     * @return int
+     * @return string
      */
-    public function getCurrentPage()
+    public function getSecret()
     {
-        return $this->container['current_page'];
+        return $this->container['secret'];
     }
 
     /**
-     * Sets current_page
+     * Sets secret
      *
-     * @param int $current_page Current page number.
+     * @param string $secret OAuth Client Secret.
      *
      * @return self
      */
-    public function setCurrentPage($current_page)
+    public function setSecret($secret)
     {
-        if (is_null($current_page)) {
-            throw new \InvalidArgumentException('non-nullable current_page cannot be null');
+        if (is_null($secret)) {
+            throw new \InvalidArgumentException('non-nullable secret cannot be null');
         }
-        $this->container['current_page'] = $current_page;
-
-        return $this;
-    }
-
-    /**
-     * Gets pages_count
-     *
-     * @return int
-     */
-    public function getPagesCount()
-    {
-        return $this->container['pages_count'];
-    }
-
-    /**
-     * Sets pages_count
-     *
-     * @param int $pages_count Total number of pages.
-     *
-     * @return self
-     */
-    public function setPagesCount($pages_count)
-    {
-        if (is_null($pages_count)) {
-            throw new \InvalidArgumentException('non-nullable pages_count cannot be null');
-        }
-        $this->container['pages_count'] = $pages_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_size
-     *
-     * @return int
-     */
-    public function getPageSize()
-    {
-        return $this->container['page_size'];
-    }
-
-    /**
-     * Sets page_size
-     *
-     * @param int $page_size Number of items per page.
-     *
-     * @return self
-     */
-    public function setPageSize($page_size)
-    {
-        if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
-        }
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets receipts
-     *
-     * @return \Tid\CustomaPHP\Model\StrictReceipt[]
-     */
-    public function getReceipts()
-    {
-        return $this->container['receipts'];
-    }
-
-    /**
-     * Sets receipts
-     *
-     * @param \Tid\CustomaPHP\Model\StrictReceipt[] $receipts List of receipts.
-     *
-     * @return self
-     */
-    public function setReceipts($receipts)
-    {
-        if (is_null($receipts)) {
-            throw new \InvalidArgumentException('non-nullable receipts cannot be null');
-        }
-        $this->container['receipts'] = $receipts;
+        $this->container['secret'] = $secret;
 
         return $this;
     }
