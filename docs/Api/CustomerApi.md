@@ -4,18 +4,18 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**customerDelete()**](CustomerApi.md#customerDelete) | **DELETE** /api/v3/customer/{id} | Deletes a customer with the given ID. |
-| [**customerGet()**](CustomerApi.md#customerGet) | **GET** /api/v3/customer/{id} | Retrieves a customer by their ID. |
-| [**customerPatch()**](CustomerApi.md#customerPatch) | **PATCH** /api/v3/customer/{id} | Updates a customer with the given ID partially. |
-| [**customerPost()**](CustomerApi.md#customerPost) | **POST** /api/v3/customer | Creates a new Customer. |
-| [**customerPut()**](CustomerApi.md#customerPut) | **PUT** /api/v3/customer/{id} | Overwrites a customer with the given ID. |
-| [**customerSearch()**](CustomerApi.md#customerSearch) | **POST** /api/v3/customer/search | Searches for customers by the given filters. |
+| [**customerDeleteV3()**](CustomerApi.md#customerDeleteV3) | **DELETE** /api/v3/customer/{id} | Deletes a customer with the given ID. |
+| [**customerGetV3()**](CustomerApi.md#customerGetV3) | **GET** /api/v3/customer/{id} | Retrieves a customer by their ID. |
+| [**customerPatchV3()**](CustomerApi.md#customerPatchV3) | **PATCH** /api/v3/customer/{id} | Updates a customer with the given ID partially. |
+| [**customerPostV3()**](CustomerApi.md#customerPostV3) | **POST** /api/v3/customer | Creates a new Customer. |
+| [**customerPutV3()**](CustomerApi.md#customerPutV3) | **PUT** /api/v3/customer/{id} | Overwrites a customer with the given ID. |
+| [**customerSearchV3()**](CustomerApi.md#customerSearchV3) | **POST** /api/v3/customer/search | Searches for customers by the given filters. |
 
 
-## `customerDelete()`
+## `customerDeleteV3()`
 
 ```php
-customerDelete($id)
+customerDeleteV3($id)
 ```
 
 Deletes a customer with the given ID.
@@ -27,7 +27,7 @@ Deletes a customer with the given ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -40,9 +40,9 @@ $apiInstance = new Tid\CustomaPHP\Api\CustomerApi(
 $id = 'id_example'; // string
 
 try {
-    $apiInstance->customerDelete($id);
+    $apiInstance->customerDeleteV3($id);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerDeleteV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -58,7 +58,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -69,10 +69,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerGet()`
+## `customerGetV3()`
 
 ```php
-customerGet($id): \Tid\CustomaPHP\Model\StrictCustomer
+customerGetV3($id): \Tid\CustomaPHP\Model\StrictCustomer
 ```
 
 Retrieves a customer by their ID.
@@ -84,7 +84,7 @@ Retrieves a customer by their ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -97,10 +97,10 @@ $apiInstance = new Tid\CustomaPHP\Api\CustomerApi(
 $id = 'id_example'; // string
 
 try {
-    $result = $apiInstance->customerGet($id);
+    $result = $apiInstance->customerGetV3($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerGetV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -116,7 +116,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -127,10 +127,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerPatch()`
+## `customerPatchV3()`
 
 ```php
-customerPatch($id, $customer)
+customerPatchV3($id, $customer)
 ```
 
 Updates a customer with the given ID partially.
@@ -144,7 +144,7 @@ This method allows for partial updates to a customer's data. Only the fields pro
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -158,9 +158,9 @@ $id = 'id_example'; // string
 $customer = new \Tid\CustomaPHP\Model\Customer(); // \Tid\CustomaPHP\Model\Customer
 
 try {
-    $apiInstance->customerPatch($id, $customer);
+    $apiInstance->customerPatchV3($id, $customer);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerPatchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -177,7 +177,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -188,10 +188,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerPost()`
+## `customerPostV3()`
 
 ```php
-customerPost($strict_customer): \Tid\CustomaPHP\Model\ItemCreatedResponse
+customerPostV3($strict_customer): \Tid\CustomaPHP\Model\ItemCreatedResponse
 ```
 
 Creates a new Customer.
@@ -205,7 +205,7 @@ A new customer is created and the ID of the created customer is returned.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -218,10 +218,10 @@ $apiInstance = new Tid\CustomaPHP\Api\CustomerApi(
 $strict_customer = new \Tid\CustomaPHP\Model\StrictCustomer(); // \Tid\CustomaPHP\Model\StrictCustomer
 
 try {
-    $result = $apiInstance->customerPost($strict_customer);
+    $result = $apiInstance->customerPostV3($strict_customer);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerPostV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -237,7 +237,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -248,10 +248,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerPut()`
+## `customerPutV3()`
 
 ```php
-customerPut($id, $strict_customer)
+customerPutV3($id, $strict_customer)
 ```
 
 Overwrites a customer with the given ID.
@@ -265,7 +265,7 @@ The customer must already exist in the system. All customer data is replaced wit
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -279,9 +279,9 @@ $id = 'id_example'; // string
 $strict_customer = new \Tid\CustomaPHP\Model\StrictCustomer(); // \Tid\CustomaPHP\Model\StrictCustomer
 
 try {
-    $apiInstance->customerPut($id, $strict_customer);
+    $apiInstance->customerPutV3($id, $strict_customer);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerPutV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -298,7 +298,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -309,10 +309,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `customerSearch()`
+## `customerSearchV3()`
 
 ```php
-customerSearch($search_request): \Tid\CustomaPHP\Model\CustomerSearchResponse
+customerSearchV3($search_request): \Tid\CustomaPHP\Model\CustomerSearchResponse
 ```
 
 Searches for customers by the given filters.
@@ -326,7 +326,7 @@ Using the search endpoint, customers can be filtered based on various criteria, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -339,10 +339,10 @@ $apiInstance = new Tid\CustomaPHP\Api\CustomerApi(
 $search_request = new \Tid\CustomaPHP\Model\SearchRequest(); // \Tid\CustomaPHP\Model\SearchRequest
 
 try {
-    $result = $apiInstance->customerSearch($search_request);
+    $result = $apiInstance->customerSearchV3($search_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->customerSearchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -358,7 +358,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 

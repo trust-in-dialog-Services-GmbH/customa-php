@@ -4,18 +4,18 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**receiptDelete()**](ReceiptApi.md#receiptDelete) | **DELETE** /api/v3/receipt/{id} | Deletes a receipt by its ID. |
-| [**receiptGet()**](ReceiptApi.md#receiptGet) | **GET** /api/v3/receipt/{id} | Retrieves a receipt by its ID. |
-| [**receiptPatch()**](ReceiptApi.md#receiptPatch) | **PATCH** /api/v3/receipt/{id} | Partially updates an existing receipt with the given ID. |
-| [**receiptPost()**](ReceiptApi.md#receiptPost) | **POST** /api/v3/receipt | Creates a new receipt. |
-| [**receiptPut()**](ReceiptApi.md#receiptPut) | **PUT** /api/v3/receipt/{id} | Overwrites an existing receipt with the given ID. |
-| [**receiptSearch()**](ReceiptApi.md#receiptSearch) | **POST** /api/v3/receipt/search | Searches for receipts by the given filters. |
+| [**receiptDeleteV3()**](ReceiptApi.md#receiptDeleteV3) | **DELETE** /api/v3/receipt/{id} | Deletes a receipt by its ID. |
+| [**receiptGetV3()**](ReceiptApi.md#receiptGetV3) | **GET** /api/v3/receipt/{id} | Retrieves a receipt by its ID. |
+| [**receiptPatchV3()**](ReceiptApi.md#receiptPatchV3) | **PATCH** /api/v3/receipt/{id} | Partially updates an existing receipt with the given ID. |
+| [**receiptPostV3()**](ReceiptApi.md#receiptPostV3) | **POST** /api/v3/receipt | Creates a new receipt. |
+| [**receiptPutV3()**](ReceiptApi.md#receiptPutV3) | **PUT** /api/v3/receipt/{id} | Overwrites an existing receipt with the given ID. |
+| [**receiptSearchV3()**](ReceiptApi.md#receiptSearchV3) | **POST** /api/v3/receipt/search | Searches for receipts by the given filters. |
 
 
-## `receiptDelete()`
+## `receiptDeleteV3()`
 
 ```php
-receiptDelete($id)
+receiptDeleteV3($id)
 ```
 
 Deletes a receipt by its ID.
@@ -27,7 +27,7 @@ Deletes a receipt by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -40,9 +40,9 @@ $apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
 $id = 'id_example'; // string
 
 try {
-    $apiInstance->receiptDelete($id);
+    $apiInstance->receiptDeleteV3($id);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptDeleteV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -58,7 +58,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -69,10 +69,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `receiptGet()`
+## `receiptGetV3()`
 
 ```php
-receiptGet($id): \Tid\CustomaPHP\Model\StrictReceipt
+receiptGetV3($id): \Tid\CustomaPHP\Model\StrictReceipt
 ```
 
 Retrieves a receipt by its ID.
@@ -84,7 +84,7 @@ Retrieves a receipt by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -97,10 +97,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
 $id = 'id_example'; // string
 
 try {
-    $result = $apiInstance->receiptGet($id);
+    $result = $apiInstance->receiptGetV3($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptGetV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -116,7 +116,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -127,10 +127,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `receiptPatch()`
+## `receiptPatchV3()`
 
 ```php
-receiptPatch($id, $receipt)
+receiptPatchV3($id, $receipt)
 ```
 
 Partially updates an existing receipt with the given ID.
@@ -144,7 +144,7 @@ The receipt must already exist. The provided data will be merged with the existi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -158,9 +158,9 @@ $id = 'id_example'; // string
 $receipt = new \Tid\CustomaPHP\Model\Receipt(); // \Tid\CustomaPHP\Model\Receipt
 
 try {
-    $apiInstance->receiptPatch($id, $receipt);
+    $apiInstance->receiptPatchV3($id, $receipt);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptPatchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -177,7 +177,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -188,10 +188,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `receiptPost()`
+## `receiptPostV3()`
 
 ```php
-receiptPost($strict_receipt): \Tid\CustomaPHP\Model\ItemCreatedResponse
+receiptPostV3($strict_receipt): \Tid\CustomaPHP\Model\ItemCreatedResponse
 ```
 
 Creates a new receipt.
@@ -205,7 +205,7 @@ A receipt is created using the provided JSON data. The ID of the created receipt
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -218,10 +218,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
 $strict_receipt = new \Tid\CustomaPHP\Model\StrictReceipt(); // \Tid\CustomaPHP\Model\StrictReceipt
 
 try {
-    $result = $apiInstance->receiptPost($strict_receipt);
+    $result = $apiInstance->receiptPostV3($strict_receipt);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptPostV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -237,7 +237,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -248,10 +248,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `receiptPut()`
+## `receiptPutV3()`
 
 ```php
-receiptPut($id, $strict_receipt)
+receiptPutV3($id, $strict_receipt)
 ```
 
 Overwrites an existing receipt with the given ID.
@@ -265,7 +265,7 @@ The receipt must already exist. The provided data will replace the existing rece
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -279,9 +279,9 @@ $id = 'id_example'; // string
 $strict_receipt = new \Tid\CustomaPHP\Model\StrictReceipt(); // \Tid\CustomaPHP\Model\StrictReceipt
 
 try {
-    $apiInstance->receiptPut($id, $strict_receipt);
+    $apiInstance->receiptPutV3($id, $strict_receipt);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptPutV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -298,7 +298,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -309,10 +309,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `receiptSearch()`
+## `receiptSearchV3()`
 
 ```php
-receiptSearch($search_request): \Tid\CustomaPHP\Model\ReceiptSearchResponse
+receiptSearchV3($search_request): \Tid\CustomaPHP\Model\ReceiptSearchResponse
 ```
 
 Searches for receipts by the given filters.
@@ -326,7 +326,7 @@ Using the search endpoint, receipts can be filtered based on various criteria, w
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -339,10 +339,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
 $search_request = new \Tid\CustomaPHP\Model\SearchRequest(); // \Tid\CustomaPHP\Model\SearchRequest
 
 try {
-    $result = $apiInstance->receiptSearch($search_request);
+    $result = $apiInstance->receiptSearchV3($search_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptSearchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -358,7 +358,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 

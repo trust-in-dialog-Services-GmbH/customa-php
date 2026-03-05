@@ -4,13 +4,13 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**oauthValidate()**](OauthApi.md#oauthValidate) | **POST** /api/v3/oauth/{app}/validate | Internal API: Check the validity of OAuth credentials for a given app. |
+| [**oauthValidateV3()**](OauthApi.md#oauthValidateV3) | **POST** /api/v3/oauth/{app}/validate | Internal API: Check the validity of OAuth credentials for a given app. |
 
 
-## `oauthValidate()`
+## `oauthValidateV3()`
 
 ```php
-oauthValidate($app, $o_auth_validation_request): \Tid\CustomaPHP\Model\OAuthValidationResponse
+oauthValidateV3($app, $o_auth_validation_request): \Tid\CustomaPHP\Model\OAuthValidationResponse
 ```
 
 Internal API: Check the validity of OAuth credentials for a given app.
@@ -24,7 +24,7 @@ This endpoint checks whether the provided ClientID and Secret are valid for the 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -38,10 +38,10 @@ $app = 'app_example'; // string
 $o_auth_validation_request = new \Tid\CustomaPHP\Model\OAuthValidationRequest(); // \Tid\CustomaPHP\Model\OAuthValidationRequest
 
 try {
-    $result = $apiInstance->oauthValidate($app, $o_auth_validation_request);
+    $result = $apiInstance->oauthValidateV3($app, $o_auth_validation_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OauthApi->oauthValidate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OauthApi->oauthValidateV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -58,7 +58,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 

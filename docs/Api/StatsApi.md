@@ -4,19 +4,25 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**statsReceipt()**](StatsApi.md#statsReceipt) | **POST** /api/v3/stats/receipt | Calculates receipt statistics |
-| [**statsReceiptGroupings()**](StatsApi.md#statsReceiptGroupings) | **GET** /api/v3/stats/receipt/groupings | Returns a list of grouping options for receipt statistics. |
-| [**statsReceiptItem()**](StatsApi.md#statsReceiptItem) | **POST** /api/v3/stats/receipt_item | Calculates receipt item statistics |
-| [**statsReceiptItemGroupings()**](StatsApi.md#statsReceiptItemGroupings) | **GET** /api/v3/stats/receipt_item/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptFieldsV4()**](StatsApi.md#statsReceiptFieldsV4) | **GET** /api/v4/stats/{project}/receipt/fields | Returns a list of fields and allowed filters for receipt statistics. |
+| [**statsReceiptGroupingsV3()**](StatsApi.md#statsReceiptGroupingsV3) | **GET** /api/v3/stats/receipt/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptGroupingsV4()**](StatsApi.md#statsReceiptGroupingsV4) | **GET** /api/v4/stats/{project}/receipt/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptItemFieldsV4()**](StatsApi.md#statsReceiptItemFieldsV4) | **GET** /api/v4/stats/{project}/receipt_item/fields | Returns a list of fields and allowed filters for receipt item statistics. |
+| [**statsReceiptItemGroupingsV3()**](StatsApi.md#statsReceiptItemGroupingsV3) | **GET** /api/v3/stats/receipt_item/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptItemGroupingsV4()**](StatsApi.md#statsReceiptItemGroupingsV4) | **GET** /api/v4/stats/{project}/receipt_item/groupings | Returns a list of grouping options for receipt statistics. |
+| [**statsReceiptItemV3()**](StatsApi.md#statsReceiptItemV3) | **POST** /api/v3/stats/receipt_item | Calculates receipt item statistics. |
+| [**statsReceiptItemV4()**](StatsApi.md#statsReceiptItemV4) | **POST** /api/v4/stats/{project}/receipt_item | Calculates receipt item statistics. |
+| [**statsReceiptV3()**](StatsApi.md#statsReceiptV3) | **POST** /api/v3/stats/receipt | Calculates receipt statistics. |
+| [**statsReceiptV4()**](StatsApi.md#statsReceiptV4) | **POST** /api/v4/stats/{project}/receipt | Calculates receipt statistics. |
 
 
-## `statsReceipt()`
+## `statsReceiptFieldsV4()`
 
 ```php
-statsReceipt($stats_receipt_request): \Tid\CustomaPHP\Model\StatsReceiptResponse
+statsReceiptFieldsV4($project): \Tid\CustomaPHP\Model\StatsFields
 ```
 
-Calculates receipt statistics
+Returns a list of fields and allowed filters for receipt statistics.
 
 ### Example
 
@@ -25,7 +31,12 @@ Calculates receipt statistics
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -35,13 +46,13 @@ $apiInstance = new Tid\CustomaPHP\Api\StatsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stats_receipt_request = new \Tid\CustomaPHP\Model\StatsReceiptRequest(); // \Tid\CustomaPHP\Model\StatsReceiptRequest | Request body for receipt statistics.
+$project = 'project_example'; // string
 
 try {
-    $result = $apiInstance->statsReceipt($stats_receipt_request);
+    $result = $apiInstance->statsReceiptFieldsV4($project);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatsApi->statsReceipt: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatsApi->statsReceiptFieldsV4: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -49,29 +60,29 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **stats_receipt_request** | [**\Tid\CustomaPHP\Model\StatsReceiptRequest**](../Model/StatsReceiptRequest.md)| Request body for receipt statistics. | [optional] |
+| **project** | **string**|  | |
 
 ### Return type
 
-[**\Tid\CustomaPHP\Model\StatsReceiptResponse**](../Model/StatsReceiptResponse.md)
+[**\Tid\CustomaPHP\Model\StatsFields**](../Model/StatsFields.md)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `statsReceiptGroupings()`
+## `statsReceiptGroupingsV3()`
 
 ```php
-statsReceiptGroupings(): \Tid\CustomaPHP\Model\ChoicesResponse
+statsReceiptGroupingsV3(): \Tid\CustomaPHP\Model\ChoicesList
 ```
 
 Returns a list of grouping options for receipt statistics.
@@ -83,7 +94,7 @@ Returns a list of grouping options for receipt statistics.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -95,10 +106,10 @@ $apiInstance = new Tid\CustomaPHP\Api\StatsApi(
 );
 
 try {
-    $result = $apiInstance->statsReceiptGroupings();
+    $result = $apiInstance->statsReceiptGroupingsV3();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatsApi->statsReceiptGroupings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatsApi->statsReceiptGroupingsV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -108,11 +119,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tid\CustomaPHP\Model\ChoicesResponse**](../Model/ChoicesResponse.md)
+[**\Tid\CustomaPHP\Model\ChoicesList**](../Model/ChoicesList.md)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -123,68 +134,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `statsReceiptItem()`
+## `statsReceiptGroupingsV4()`
 
 ```php
-statsReceiptItem($stats_receipt_item_request): \Tid\CustomaPHP\Model\StatsReceiptItemResponse
-```
-
-Calculates receipt item statistics
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: Token
-$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$stats_receipt_item_request = new \Tid\CustomaPHP\Model\StatsReceiptItemRequest(); // \Tid\CustomaPHP\Model\StatsReceiptItemRequest | Request body for receipt item statistics.
-
-try {
-    $result = $apiInstance->statsReceiptItem($stats_receipt_item_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StatsApi->statsReceiptItem: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **stats_receipt_item_request** | [**\Tid\CustomaPHP\Model\StatsReceiptItemRequest**](../Model/StatsReceiptItemRequest.md)| Request body for receipt item statistics. | [optional] |
-
-### Return type
-
-[**\Tid\CustomaPHP\Model\StatsReceiptItemResponse**](../Model/StatsReceiptItemResponse.md)
-
-### Authorization
-
-[Token](../../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `statsReceiptItemGroupings()`
-
-```php
-statsReceiptItemGroupings(): \Tid\CustomaPHP\Model\ChoicesResponse
+statsReceiptGroupingsV4($project): \Tid\CustomaPHP\Model\StatsGroupings
 ```
 
 Returns a list of grouping options for receipt statistics.
@@ -196,7 +149,133 @@ Returns a list of grouping options for receipt statistics.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+
+try {
+    $result = $apiInstance->statsReceiptGroupingsV4($project);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptGroupingsV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsGroupings**](../Model/StatsGroupings.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemFieldsV4()`
+
+```php
+statsReceiptItemFieldsV4($project): \Tid\CustomaPHP\Model\StatsFields
+```
+
+Returns a list of fields and allowed filters for receipt item statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+
+try {
+    $result = $apiInstance->statsReceiptItemFieldsV4($project);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItemFieldsV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsFields**](../Model/StatsFields.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemGroupingsV3()`
+
+```php
+statsReceiptItemGroupingsV3(): \Tid\CustomaPHP\Model\ChoicesList
+```
+
+Returns a list of grouping options for receipt statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -208,10 +287,10 @@ $apiInstance = new Tid\CustomaPHP\Api\StatsApi(
 );
 
 try {
-    $result = $apiInstance->statsReceiptItemGroupings();
+    $result = $apiInstance->statsReceiptItemGroupingsV3();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatsApi->statsReceiptItemGroupings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatsApi->statsReceiptItemGroupingsV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -221,15 +300,324 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tid\CustomaPHP\Model\ChoicesResponse**](../Model/ChoicesResponse.md)
+[**\Tid\CustomaPHP\Model\ChoicesList**](../Model/ChoicesList.md)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemGroupingsV4()`
+
+```php
+statsReceiptItemGroupingsV4($project): \Tid\CustomaPHP\Model\StatsGroupings
+```
+
+Returns a list of grouping options for receipt statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+
+try {
+    $result = $apiInstance->statsReceiptItemGroupingsV4($project);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItemGroupingsV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsGroupings**](../Model/StatsGroupings.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemV3()`
+
+```php
+statsReceiptItemV3($stats_request): \Tid\CustomaPHP\Model\StatsReceiptItemGroups
+```
+
+Calculates receipt item statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: apiV3Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$stats_request = new \Tid\CustomaPHP\Model\StatsRequest(); // \Tid\CustomaPHP\Model\StatsRequest | Request body for receipt item statistics.
+
+try {
+    $result = $apiInstance->statsReceiptItemV3($stats_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItemV3: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **stats_request** | [**\Tid\CustomaPHP\Model\StatsRequest**](../Model/StatsRequest.md)| Request body for receipt item statistics. | [optional] |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsReceiptItemGroups**](../Model/StatsReceiptItemGroups.md)
+
+### Authorization
+
+[apiV3Token](../../README.md#apiV3Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptItemV4()`
+
+```php
+statsReceiptItemV4($project, $stats_request): \Tid\CustomaPHP\Model\StatsReceiptItemGroups
+```
+
+Calculates receipt item statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$stats_request = new \Tid\CustomaPHP\Model\StatsRequest(); // \Tid\CustomaPHP\Model\StatsRequest | Request body for receipt item statistics.
+
+try {
+    $result = $apiInstance->statsReceiptItemV4($project, $stats_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptItemV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **stats_request** | [**\Tid\CustomaPHP\Model\StatsRequest**](../Model/StatsRequest.md)| Request body for receipt item statistics. | [optional] |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsReceiptItemGroups**](../Model/StatsReceiptItemGroups.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptV3()`
+
+```php
+statsReceiptV3($stats_request): \Tid\CustomaPHP\Model\StatsReceiptGroups
+```
+
+Calculates receipt statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: apiV3Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$stats_request = new \Tid\CustomaPHP\Model\StatsRequest(); // \Tid\CustomaPHP\Model\StatsRequest | Request body for receipt statistics.
+
+try {
+    $result = $apiInstance->statsReceiptV3($stats_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptV3: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **stats_request** | [**\Tid\CustomaPHP\Model\StatsRequest**](../Model/StatsRequest.md)| Request body for receipt statistics. | [optional] |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsReceiptGroups**](../Model/StatsReceiptGroups.md)
+
+### Authorization
+
+[apiV3Token](../../README.md#apiV3Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statsReceiptV4()`
+
+```php
+statsReceiptV4($project, $stats_request): \Tid\CustomaPHP\Model\StatsReceiptGroups
+```
+
+Calculates receipt statistics.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\StatsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$stats_request = new \Tid\CustomaPHP\Model\StatsRequest(); // \Tid\CustomaPHP\Model\StatsRequest | Request body for receipt statistics.
+
+try {
+    $result = $apiInstance->statsReceiptV4($project, $stats_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StatsApi->statsReceiptV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **stats_request** | [**\Tid\CustomaPHP\Model\StatsRequest**](../Model/StatsRequest.md)| Request body for receipt statistics. | [optional] |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\StatsReceiptGroups**](../Model/StatsReceiptGroups.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

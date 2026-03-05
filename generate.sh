@@ -3,9 +3,8 @@
 
 if [ -z "$APIDOC_URL" ]; then
 	echo "Missing Api Doc URL, using live URL"
-	APIDOC_URL="https://www.customa.biz/api/v3/doc.json"
+	APIDOC_URL="https://www.customa.biz/api/doc.json"
 fi
 
-rm -rf lib
-rm -rf
+rm -rf lib docs test
 openapi-generator generate -i "$APIDOC_URL" -g php -o . -p composerPackageName=tid/customa-php -p invokerPackage=Tid\\CustomaPHP -p licenseName=MIT

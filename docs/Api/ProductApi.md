@@ -4,18 +4,18 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**productDelete()**](ProductApi.md#productDelete) | **DELETE** /api/v3/product/{id} | Deletes a product by its ID. |
-| [**productGet()**](ProductApi.md#productGet) | **GET** /api/v3/product/{id} | Retrieves a product by its ID. |
-| [**productPatch()**](ProductApi.md#productPatch) | **PATCH** /api/v3/product/{id} | Updates a product partially by its ID. |
-| [**productPost()**](ProductApi.md#productPost) | **POST** /api/v3/product | Creates a new Product. |
-| [**productPut()**](ProductApi.md#productPut) | **PUT** /api/v3/product/{id} | Overwrites an existing product with the given ID. |
-| [**productSearch()**](ProductApi.md#productSearch) | **POST** /api/v3/product/search | Searches for products by the given filters. |
+| [**productDeleteV3()**](ProductApi.md#productDeleteV3) | **DELETE** /api/v3/product/{id} | Deletes a product by its ID. |
+| [**productGetV3()**](ProductApi.md#productGetV3) | **GET** /api/v3/product/{id} | Retrieves a product by its ID. |
+| [**productPatchV3()**](ProductApi.md#productPatchV3) | **PATCH** /api/v3/product/{id} | Updates a product partially by its ID. |
+| [**productPostV3()**](ProductApi.md#productPostV3) | **POST** /api/v3/product | Creates a new Product. |
+| [**productPutV3()**](ProductApi.md#productPutV3) | **PUT** /api/v3/product/{id} | Overwrites an existing product with the given ID. |
+| [**productSearchV3()**](ProductApi.md#productSearchV3) | **POST** /api/v3/product/search | Searches for products by the given filters. |
 
 
-## `productDelete()`
+## `productDeleteV3()`
 
 ```php
-productDelete($id)
+productDeleteV3($id)
 ```
 
 Deletes a product by its ID.
@@ -27,7 +27,7 @@ Deletes a product by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -40,9 +40,9 @@ $apiInstance = new Tid\CustomaPHP\Api\ProductApi(
 $id = 'id_example'; // string
 
 try {
-    $apiInstance->productDelete($id);
+    $apiInstance->productDeleteV3($id);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productDeleteV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -58,7 +58,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -69,10 +69,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `productGet()`
+## `productGetV3()`
 
 ```php
-productGet($id): \Tid\CustomaPHP\Model\StrictProduct
+productGetV3($id): \Tid\CustomaPHP\Model\StrictProduct
 ```
 
 Retrieves a product by its ID.
@@ -84,7 +84,7 @@ Retrieves a product by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -97,10 +97,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ProductApi(
 $id = 'id_example'; // string
 
 try {
-    $result = $apiInstance->productGet($id);
+    $result = $apiInstance->productGetV3($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productGetV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -116,7 +116,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -127,10 +127,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `productPatch()`
+## `productPatchV3()`
 
 ```php
-productPatch($id, $product)
+productPatchV3($id, $product)
 ```
 
 Updates a product partially by its ID.
@@ -144,7 +144,7 @@ This method allows for partial updates to a product's data. Only the fields prov
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -158,9 +158,9 @@ $id = 'id_example'; // string
 $product = new \Tid\CustomaPHP\Model\Product(); // \Tid\CustomaPHP\Model\Product
 
 try {
-    $apiInstance->productPatch($id, $product);
+    $apiInstance->productPatchV3($id, $product);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productPatchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -177,7 +177,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -188,10 +188,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `productPost()`
+## `productPostV3()`
 
 ```php
-productPost($strict_product): \Tid\CustomaPHP\Model\ItemCreatedResponse
+productPostV3($strict_product): \Tid\CustomaPHP\Model\ItemCreatedResponse
 ```
 
 Creates a new Product.
@@ -205,7 +205,7 @@ A new product is created using the provided data. The product ID is returned in 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -218,10 +218,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ProductApi(
 $strict_product = new \Tid\CustomaPHP\Model\StrictProduct(); // \Tid\CustomaPHP\Model\StrictProduct
 
 try {
-    $result = $apiInstance->productPost($strict_product);
+    $result = $apiInstance->productPostV3($strict_product);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productPostV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -237,7 +237,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -248,10 +248,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `productPut()`
+## `productPutV3()`
 
 ```php
-productPut($id, $strict_product)
+productPutV3($id, $strict_product)
 ```
 
 Overwrites an existing product with the given ID.
@@ -265,7 +265,7 @@ The product must already exist. The provided data will replace the existing prod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -279,9 +279,9 @@ $id = 'id_example'; // string
 $strict_product = new \Tid\CustomaPHP\Model\StrictProduct(); // \Tid\CustomaPHP\Model\StrictProduct
 
 try {
-    $apiInstance->productPut($id, $strict_product);
+    $apiInstance->productPutV3($id, $strict_product);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productPutV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -298,7 +298,7 @@ void (empty response body)
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
@@ -309,10 +309,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `productSearch()`
+## `productSearchV3()`
 
 ```php
-productSearch($search_request): \Tid\CustomaPHP\Model\ProductSearchResponse
+productSearchV3($search_request): \Tid\CustomaPHP\Model\ProductSearchResponse
 ```
 
 Searches for products by the given filters.
@@ -326,7 +326,7 @@ Using the search endpoint, products can be filtered based on various criteria, w
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer authorization: Token
+// Configure Bearer authorization: apiV3Token
 $config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -339,10 +339,10 @@ $apiInstance = new Tid\CustomaPHP\Api\ProductApi(
 $search_request = new \Tid\CustomaPHP\Model\SearchRequest(); // \Tid\CustomaPHP\Model\SearchRequest
 
 try {
-    $result = $apiInstance->productSearch($search_request);
+    $result = $apiInstance->productSearchV3($search_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->productSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->productSearchV3: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -358,7 +358,7 @@ try {
 
 ### Authorization
 
-[Token](../../README.md#Token)
+[apiV3Token](../../README.md#apiV3Token)
 
 ### HTTP request headers
 
