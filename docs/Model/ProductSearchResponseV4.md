@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **products** | [**\Tid\CustomaPHP\Model\ProductV4[]**](ProductV4.md) |  | [optional]
-**total_count** | **int** |  |
-**current_page** | **int** |  |
-**pages_count** | **int** |  |
-**page_size** | **int** |  |
+**total_count** | **int** | Total number of items. |
+**current_page** | **int** | Current page number. |
+**pages_count** | **int** | Total number of pages. |
+**page_size** | **int** | Number of items per page. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

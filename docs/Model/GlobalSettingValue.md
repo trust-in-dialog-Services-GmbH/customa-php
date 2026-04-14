@@ -1,4 +1,4 @@
-# # GlobalValueOfTheSetting
+# # GlobalSettingValue
 
 ## Properties
 

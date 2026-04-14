@@ -1,4 +1,4 @@
-# # MarketplaceSpecificValuesOfTheSettingValue
+# # Salutation
 
 ## Properties
 
