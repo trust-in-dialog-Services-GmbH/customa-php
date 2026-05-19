@@ -2,6 +2,7 @@
 .php-cs-fixer.dist.php
 composer.json
 docs/Api/AuthApi.md
+docs/Api/CategoryApi.md
 docs/Api/CustomerApi.md
 docs/Api/ProductApi.md
 docs/Api/ProjectApi.md
@@ -15,6 +16,8 @@ docs/Model/AuthLoginRequestV4.md
 docs/Model/AuthTokenResponseV3.md
 docs/Model/AuthTokenResponseV4.md
 docs/Model/BasicSearchResponse.md
+docs/Model/CategorySearchResponseV4.md
+docs/Model/CategoryV4.md
 docs/Model/Choice.md
 docs/Model/ChoicesList.md
 docs/Model/Customer.md
@@ -81,6 +84,7 @@ docs/Model/TaxClass.md
 docs/Model/Timestamped.md
 git_push.sh
 lib/Api/AuthApi.php
+lib/Api/CategoryApi.php
 lib/Api/CustomerApi.php
 lib/Api/ProductApi.php
 lib/Api/ProjectApi.php
@@ -98,6 +102,8 @@ lib/Model/AuthLoginRequestV4.php
 lib/Model/AuthTokenResponseV3.php
 lib/Model/AuthTokenResponseV4.php
 lib/Model/BasicSearchResponse.php
+lib/Model/CategorySearchResponseV4.php
+lib/Model/CategoryV4.php
 lib/Model/Choice.php
 lib/Model/ChoicesList.php
 lib/Model/Customer.php
@@ -166,6 +172,7 @@ lib/Model/Timestamped.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AuthApiTest.php
+test/Api/CategoryApiTest.php
 test/Api/CustomerApiTest.php
 test/Api/ProductApiTest.php
 test/Api/ProjectApiTest.php
@@ -179,6 +186,8 @@ test/Model/AuthLoginRequestV4Test.php
 test/Model/AuthTokenResponseV3Test.php
 test/Model/AuthTokenResponseV4Test.php
 test/Model/BasicSearchResponseTest.php
+test/Model/CategorySearchResponseV4Test.php
+test/Model/CategoryV4Test.php
 test/Model/ChoiceTest.php
 test/Model/ChoicesListTest.php
 test/Model/CustomerSearchResponseTest.php
