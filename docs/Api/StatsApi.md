@@ -19,7 +19,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 ## `statsReceiptFieldsV4()`
 
 ```php
-statsReceiptFieldsV4($project): \Tid\CustomaPHP\Model\StatsFields
+statsReceiptFieldsV4($project): \Tid\CustomaPHP\Model\FieldDefinitions
 ```
 
 Returns a list of fields and allowed filters for receipt statistics.
@@ -64,7 +64,7 @@ try {
 
 ### Return type
 
-[**\Tid\CustomaPHP\Model\StatsFields**](../Model/StatsFields.md)
+[**\Tid\CustomaPHP\Model\FieldDefinitions**](../Model/FieldDefinitions.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ try {
 ## `statsReceiptItemFieldsV4()`
 
 ```php
-statsReceiptItemFieldsV4($project): \Tid\CustomaPHP\Model\StatsFields
+statsReceiptItemFieldsV4($project): \Tid\CustomaPHP\Model\FieldDefinitions
 ```
 
 Returns a list of fields and allowed filters for receipt item statistics.
@@ -245,7 +245,7 @@ try {
 
 ### Return type
 
-[**\Tid\CustomaPHP\Model\StatsFields**](../Model/StatsFields.md)
+[**\Tid\CustomaPHP\Model\FieldDefinitions**](../Model/FieldDefinitions.md)
 
 ### Authorization
 

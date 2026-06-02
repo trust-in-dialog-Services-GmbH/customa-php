@@ -4,13 +4,82 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**settingsGetMarketplaceV4()**](SettingsApi.md#settingsGetMarketplaceV4) | **GET** /api/v4/settings/{project}/{mappingShopId}/{name} | Returns the value of a setting for a specific marketplace. |
 | [**settingsGetV3()**](SettingsApi.md#settingsGetV3) | **GET** /api/v3/settings/{name} | Returns the values of a given setting. |
 | [**settingsGetV4()**](SettingsApi.md#settingsGetV4) | **GET** /api/v4/settings/{project}/{name} | Returns the values of a given setting. |
 | [**settingsListV3()**](SettingsApi.md#settingsListV3) | **GET** /api/v3/settings | Returns a definition of the available settings. |
 | [**settingsListV4()**](SettingsApi.md#settingsListV4) | **GET** /api/v4/settings | Returns a definition of the available settings. |
+| [**settingsSetMarketplaceV4()**](SettingsApi.md#settingsSetMarketplaceV4) | **PUT** /api/v4/settings/{project}/{mappingShopId}/{name} | Saves the value of a setting for a specific marketplace. |
 | [**settingsValidateV3()**](SettingsApi.md#settingsValidateV3) | **POST** /api/v3/settings/{name}/validate | Validates the given setting. |
 | [**settingsValidateV4()**](SettingsApi.md#settingsValidateV4) | **POST** /api/v4/settings/{project}/{name}/validate | Validates the given setting. |
 
+
+## `settingsGetMarketplaceV4()`
+
+```php
+settingsGetMarketplaceV4($project, $mapping_shop_id, $name): \Tid\CustomaPHP\Model\SettingMarketplaceValue
+```
+
+Returns the value of a setting for a specific marketplace.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\SettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$mapping_shop_id = 'mapping_shop_id_example'; // string
+$name = 'name_example'; // string
+
+try {
+    $result = $apiInstance->settingsGetMarketplaceV4($project, $mapping_shop_id, $name);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SettingsApi->settingsGetMarketplaceV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **mapping_shop_id** | **string**|  | |
+| **name** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\SettingMarketplaceValue**](../Model/SettingMarketplaceValue.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `settingsGetV3()`
 
@@ -244,6 +313,75 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `settingsSetMarketplaceV4()`
+
+```php
+settingsSetMarketplaceV4($project, $mapping_shop_id, $name, $setting_value_request): \Tid\CustomaPHP\Model\SettingMarketplaceValue
+```
+
+Saves the value of a setting for a specific marketplace.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\SettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$mapping_shop_id = 'mapping_shop_id_example'; // string
+$name = 'name_example'; // string
+$setting_value_request = new \Tid\CustomaPHP\Model\SettingValueRequest(); // \Tid\CustomaPHP\Model\SettingValueRequest
+
+try {
+    $result = $apiInstance->settingsSetMarketplaceV4($project, $mapping_shop_id, $name, $setting_value_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SettingsApi->settingsSetMarketplaceV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **mapping_shop_id** | **string**|  | |
+| **name** | **string**|  | |
+| **setting_value_request** | [**\Tid\CustomaPHP\Model\SettingValueRequest**](../Model/SettingValueRequest.md)|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\SettingMarketplaceValue**](../Model/SettingMarketplaceValue.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

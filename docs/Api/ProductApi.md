@@ -6,6 +6,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 | ------------- | ------------- | ------------- |
 | [**productDeleteV3()**](ProductApi.md#productDeleteV3) | **DELETE** /api/v3/product/{id} | Deletes a product by its ID. |
 | [**productDeleteV4()**](ProductApi.md#productDeleteV4) | **DELETE** /api/v4/product/{project}/{id} | Deletes a product by its ID. |
+| [**productFieldsV4()**](ProductApi.md#productFieldsV4) | **GET** /api/v4/product/{project}/fields | Returns a list of fields and allowed filters for product search. |
 | [**productGetV3()**](ProductApi.md#productGetV3) | **GET** /api/v3/product/{id} | Retrieves a product by its ID. |
 | [**productGetV4()**](ProductApi.md#productGetV4) | **GET** /api/v4/product/{project}/{id} | Retrieves a product by its ID. |
 | [**productPatchV3()**](ProductApi.md#productPatchV3) | **PATCH** /api/v3/product/{id} | Updates a product partially by its ID. |
@@ -133,6 +134,69 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `productFieldsV4()`
+
+```php
+productFieldsV4($project): \Tid\CustomaPHP\Model\FieldDefinitions
+```
+
+Returns a list of fields and allowed filters for product search.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\ProductApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+
+try {
+    $result = $apiInstance->productFieldsV4($project);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductApi->productFieldsV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\FieldDefinitions**](../Model/FieldDefinitions.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

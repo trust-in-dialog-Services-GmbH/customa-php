@@ -10,6 +10,7 @@ docs/Api/ReceiptApi.md
 docs/Api/SegmentApi.md
 docs/Api/SettingsApi.md
 docs/Api/StatsApi.md
+docs/Api/TrafficApi.md
 docs/Model/AdditionalField.md
 docs/Model/AuthLoginRequestV3.md
 docs/Model/AuthLoginRequestV4.md
@@ -28,6 +29,8 @@ docs/Model/DateField.md
 docs/Model/DeliveryStatusV4.md
 docs/Model/ErrorResponseV3.md
 docs/Model/ErrorResponseV4.md
+docs/Model/FieldDefinition.md
+docs/Model/FieldDefinitions.md
 docs/Model/Filter.md
 docs/Model/FilterType.md
 docs/Model/GlobalSettingValue.md
@@ -63,11 +66,11 @@ docs/Model/SegmentRecency.md
 docs/Model/SegmentValue.md
 docs/Model/Setting.md
 docs/Model/SettingDefinition.md
+docs/Model/SettingMarketplaceValue.md
 docs/Model/SettingType.md
 docs/Model/SettingValidationResponse.md
+docs/Model/SettingValueRequest.md
 docs/Model/SettingsDefinition.md
-docs/Model/StatsField.md
-docs/Model/StatsFields.md
 docs/Model/StatsGroupings.md
 docs/Model/StatsReceiptGroup.md
 docs/Model/StatsReceiptGroups.md
@@ -82,6 +85,10 @@ docs/Model/StrictReceipt.md
 docs/Model/StrictReceiptItem.md
 docs/Model/TaxClass.md
 docs/Model/Timestamped.md
+docs/Model/TrafficFiltersResponse.md
+docs/Model/TrafficRequest.md
+docs/Model/TrafficResponse.md
+docs/Model/TrafficRow.md
 git_push.sh
 lib/Api/AuthApi.php
 lib/Api/CategoryApi.php
@@ -92,6 +99,7 @@ lib/Api/ReceiptApi.php
 lib/Api/SegmentApi.php
 lib/Api/SettingsApi.php
 lib/Api/StatsApi.php
+lib/Api/TrafficApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/FormDataProcessor.php
@@ -114,6 +122,8 @@ lib/Model/DateField.php
 lib/Model/DeliveryStatusV4.php
 lib/Model/ErrorResponseV3.php
 lib/Model/ErrorResponseV4.php
+lib/Model/FieldDefinition.php
+lib/Model/FieldDefinitions.php
 lib/Model/Filter.php
 lib/Model/FilterType.php
 lib/Model/GlobalSettingValue.php
@@ -150,11 +160,11 @@ lib/Model/SegmentRecency.php
 lib/Model/SegmentValue.php
 lib/Model/Setting.php
 lib/Model/SettingDefinition.php
+lib/Model/SettingMarketplaceValue.php
 lib/Model/SettingType.php
 lib/Model/SettingValidationResponse.php
+lib/Model/SettingValueRequest.php
 lib/Model/SettingsDefinition.php
-lib/Model/StatsField.php
-lib/Model/StatsFields.php
 lib/Model/StatsGroupings.php
 lib/Model/StatsReceiptGroup.php
 lib/Model/StatsReceiptGroups.php
@@ -169,6 +179,10 @@ lib/Model/StrictReceipt.php
 lib/Model/StrictReceiptItem.php
 lib/Model/TaxClass.php
 lib/Model/Timestamped.php
+lib/Model/TrafficFiltersResponse.php
+lib/Model/TrafficRequest.php
+lib/Model/TrafficResponse.php
+lib/Model/TrafficRow.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AuthApiTest.php
@@ -180,6 +194,7 @@ test/Api/ReceiptApiTest.php
 test/Api/SegmentApiTest.php
 test/Api/SettingsApiTest.php
 test/Api/StatsApiTest.php
+test/Api/TrafficApiTest.php
 test/Model/AdditionalFieldTest.php
 test/Model/AuthLoginRequestV3Test.php
 test/Model/AuthLoginRequestV4Test.php
@@ -198,6 +213,8 @@ test/Model/DateFieldTest.php
 test/Model/DeliveryStatusV4Test.php
 test/Model/ErrorResponseV3Test.php
 test/Model/ErrorResponseV4Test.php
+test/Model/FieldDefinitionTest.php
+test/Model/FieldDefinitionsTest.php
 test/Model/FilterTest.php
 test/Model/FilterTypeTest.php
 test/Model/GlobalSettingValueTest.php
@@ -232,12 +249,12 @@ test/Model/SegmentRecencyTest.php
 test/Model/SegmentTest.php
 test/Model/SegmentValueTest.php
 test/Model/SettingDefinitionTest.php
+test/Model/SettingMarketplaceValueTest.php
 test/Model/SettingTest.php
 test/Model/SettingTypeTest.php
 test/Model/SettingValidationResponseTest.php
+test/Model/SettingValueRequestTest.php
 test/Model/SettingsDefinitionTest.php
-test/Model/StatsFieldTest.php
-test/Model/StatsFieldsTest.php
 test/Model/StatsGroupingsTest.php
 test/Model/StatsReceiptGroupTest.php
 test/Model/StatsReceiptGroupsTest.php
@@ -252,3 +269,7 @@ test/Model/StrictReceiptItemTest.php
 test/Model/StrictReceiptTest.php
 test/Model/TaxClassTest.php
 test/Model/TimestampedTest.php
+test/Model/TrafficFiltersResponseTest.php
+test/Model/TrafficRequestTest.php
+test/Model/TrafficResponseTest.php
+test/Model/TrafficRowTest.php
