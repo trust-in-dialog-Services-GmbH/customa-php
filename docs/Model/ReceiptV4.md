@@ -8,11 +8,16 @@ Name | Type | Description | Notes
 **type** | **string** | Type of the receipt. |
 **number** | **string** | Receipt number |
 **customer_id** | **string** | ID of the customer. |
-**external_order_type** | **string** |  |
-**external_order_id** | **int** |  | [optional]
-**external_order_external_id** | **string** |  | [optional]
-**external_order_account_id** | **int** |  |
-**external_order_sub_account_id** | **string** |  |
+**external_order_type** | **string** | Deprecated, use ExternalType instead. | [optional]
+**external_order_id** | **int** | Deprecated, use ExternalID instead. | [optional]
+**external_order_external_id** | **string** | Deprecated, use ExternalSourceReceiptID instead. | [optional]
+**external_order_account_id** | **int** | Deprecated, use ExternalAccountID instead. | [optional]
+**external_order_sub_account_id** | **string** | Deprecated, use ExternalSourceID instead. | [optional]
+**external_type** | **string** | Type of the external source system this receipt originates from. | [optional]
+**external_id** | **string** | ID of the receipt in the external source system. | [optional]
+**external_source_receipt_id** | **string** | Receipt ID as provided by the external source system. | [optional]
+**external_account_id** | **string** | Account ID in the external source system. | [optional]
+**external_source_id** | **string** | Source ID in the external source system. | [optional]
 **marketplace** | **string** | Marketplace of the receipt. |
 **purchase_date** | **\DateTime** | Purchase date of the receipt. |
 **receipt_date** | **\DateTime** | Date of the receipt. | [optional]

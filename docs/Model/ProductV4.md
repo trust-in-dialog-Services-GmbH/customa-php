@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **tax_class** | [**\Tid\CustomaPHP\Model\TaxClass**](TaxClass.md) |  |
 **stock** | **int** | Stock of the product. |
 **additional_fields** | **array<string,string>** | Additional field data for the product. |
+**set_parts** | [**\Tid\CustomaPHP\Model\ProductSetPartV4[]**](ProductSetPartV4.md) | Parts of the product, if this product is a product set. | [optional]
 **purchase_price** | [**\Tid\CustomaPHP\Model\Price**](Price.md) |  |
 **sales_price** | [**\Tid\CustomaPHP\Model\Price**](Price.md) |  |
 **recommended_retail_price** | [**\Tid\CustomaPHP\Model\Price**](Price.md) |  |

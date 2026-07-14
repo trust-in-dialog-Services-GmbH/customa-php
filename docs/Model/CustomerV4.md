@@ -27,11 +27,16 @@ Name | Type | Description | Notes
 **additional_fields** | **array<string,string>** | Additional data for the customer. |
 **reference_customer** | **bool** | Determines if the customer is a reference customer. |
 **contact_ban** | **bool** | Determines if the customer has an active contact ban. |
-**external_customer_id** | **int** | ID/Number of the customer in the source system (e.g. an ERP System) |
-**external_customer_external_id** | **string** | ID/Number of the customer in a secondary source system (e.g. the shop) | [optional]
-**external_order_type** | **string** |  |
-**external_order_account_id** | **int** |  |
-**external_order_sub_account_id** | **string** |  |
+**external_customer_id** | **int** | Deprecated, use ExternalID instead. | [optional]
+**external_id** | **string** | ID/Number of the customer in the source system (e.g. an ERP System) | [optional]
+**external_customer_external_id** | **string** | Deprecated, use ExternalSourceCustomerID instead. | [optional]
+**external_source_customer_id** | **string** | ID/Number of the customer in a secondary source system (e.g. the shop) | [optional]
+**external_order_type** | **string** | Deprecated, use ExternalType instead. | [optional]
+**external_type** | **string** | External type of the customer. | [optional]
+**external_order_account_id** | **int** | Deprecated, use ExternalAccountID instead. | [optional]
+**external_account_id** | **string** | External account ID of the customer. | [optional]
+**external_order_sub_account_id** | **string** | Deprecated, use ExternalSourceID instead. | [optional]
+**external_source_id** | **string** | External source ID of the customer. | [optional]
 **marketplace** | **string** | Marketplace of the customer. |
 **test_user** | **bool** |  |
 **newsletter** | **bool** |  |

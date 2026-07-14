@@ -45,6 +45,8 @@ docs/Model/Price.md
 docs/Model/Product.md
 docs/Model/ProductSearchResponse.md
 docs/Model/ProductSearchResponseV4.md
+docs/Model/ProductSetMode.md
+docs/Model/ProductSetPartV4.md
 docs/Model/ProductV4.md
 docs/Model/Project.md
 docs/Model/ProjectList.md
@@ -139,6 +141,8 @@ lib/Model/Price.php
 lib/Model/Product.php
 lib/Model/ProductSearchResponse.php
 lib/Model/ProductSearchResponseV4.php
+lib/Model/ProductSetMode.php
+lib/Model/ProductSetPartV4.php
 lib/Model/ProductV4.php
 lib/Model/Project.php
 lib/Model/ProjectList.php
@@ -228,6 +232,8 @@ test/Model/PaymentStatusV4Test.php
 test/Model/PriceTest.php
 test/Model/ProductSearchResponseTest.php
 test/Model/ProductSearchResponseV4Test.php
+test/Model/ProductSetModeTest.php
+test/Model/ProductSetPartV4Test.php
 test/Model/ProductTest.php
 test/Model/ProductV4Test.php
 test/Model/ProjectListTest.php
