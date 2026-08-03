@@ -91,6 +91,7 @@ docs/Model/TrafficFiltersResponse.md
 docs/Model/TrafficRequest.md
 docs/Model/TrafficResponse.md
 docs/Model/TrafficRow.md
+docs/Model/TranslatedString.md
 git_push.sh
 lib/Api/AuthApi.php
 lib/Api/CategoryApi.php
@@ -187,6 +188,7 @@ lib/Model/TrafficFiltersResponse.php
 lib/Model/TrafficRequest.php
 lib/Model/TrafficResponse.php
 lib/Model/TrafficRow.php
+lib/Model/TranslatedString.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AuthApiTest.php
@@ -279,3 +281,4 @@ test/Model/TrafficFiltersResponseTest.php
 test/Model/TrafficRequestTest.php
 test/Model/TrafficResponseTest.php
 test/Model/TrafficRowTest.php
+test/Model/TranslatedStringTest.php

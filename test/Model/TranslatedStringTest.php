@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerSearchResponseV4Test
+ * TranslatedStringTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace Tid\CustomaPHP\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerSearchResponseV4Test Class Doc Comment
+ * TranslatedStringTest Class Doc Comment
  *
  * @category    Class
- * @description CustomerSearchResponseV4
+ * @description TranslatedString
  * @package     Tid\CustomaPHP
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerSearchResponseV4Test extends TestCase
+class TranslatedStringTest extends TestCase
 {
 
     /**
@@ -71,54 +71,27 @@ class CustomerSearchResponseV4Test extends TestCase
     }
 
     /**
-     * Test "CustomerSearchResponseV4"
+     * Test "TranslatedString"
      */
-    public function testCustomerSearchResponseV4()
+    public function testTranslatedString()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customers"
+     * Test attribute "de"
      */
-    public function testPropertyCustomers()
+    public function testPropertyDe()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "total_count"
+     * Test attribute "en"
      */
-    public function testPropertyTotalCount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "current_page"
-     */
-    public function testPropertyCurrentPage()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "pages_count"
-     */
-    public function testPropertyPagesCount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "page_size"
-     */
-    public function testPropertyPageSize()
+    public function testPropertyEn()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

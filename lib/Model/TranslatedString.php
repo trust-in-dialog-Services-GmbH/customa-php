@@ -1,6 +1,6 @@
 <?php
 /**
- * Price
+ * TranslatedString
  *
  * PHP version 8.1
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Tid\CustomaPHP\ObjectSerializer;
 
 /**
- * Price Class Doc Comment
+ * TranslatedString Class Doc Comment
  *
  * @category Class
- * @description A price value with its currency.
  * @package  Tid\CustomaPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Price implements ModelInterface, ArrayAccess, \JsonSerializable
+class TranslatedString implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Price';
+    protected static $openAPIModelName = 'TranslatedString';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'float',
-        'currency' => 'string'
+        'de' => 'string',
+        'en' => 'string'
     ];
 
     /**
@@ -70,8 +69,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => 'float',
-        'currency' => null
+        'de' => null,
+        'en' => null
     ];
 
     /**
@@ -80,8 +79,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'value' => false,
-        'currency' => false
+        'de' => false,
+        'en' => false
     ];
 
     /**
@@ -170,8 +169,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'currency' => 'Currency'
+        'de' => 'de',
+        'en' => 'en'
     ];
 
     /**
@@ -180,8 +179,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'currency' => 'setCurrency'
+        'de' => 'setDe',
+        'en' => 'setEn'
     ];
 
     /**
@@ -190,8 +189,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'currency' => 'getCurrency'
+        'de' => 'getDe',
+        'en' => 'getEn'
     ];
 
     /**
@@ -251,8 +250,8 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('de', $data ?? [], null);
+        $this->setIfExists('en', $data ?? [], null);
     }
 
     /**
@@ -282,11 +281,11 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['de'] === null) {
+            $invalidProperties[] = "'de' can't be null";
         }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
+        if ($this->container['en'] === null) {
+            $invalidProperties[] = "'en' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +303,55 @@ class Price implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets value
+     * Gets de
      *
-     * @return float
+     * @return string
      */
-    public function getValue()
+    public function getDe()
     {
-        return $this->container['value'];
+        return $this->container['de'];
     }
 
     /**
-     * Sets value
+     * Sets de
      *
-     * @param float $value A price value in the currency specified in the `Currency` property.
+     * @param string $de de
      *
      * @return self
      */
-    public function setValue($value)
+    public function setDe($de)
     {
-        if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        if (is_null($de)) {
+            throw new \InvalidArgumentException('non-nullable de cannot be null');
         }
-        $this->container['value'] = $value;
+        $this->container['de'] = $de;
 
         return $this;
     }
 
     /**
-     * Gets currency
+     * Gets en
      *
      * @return string
      */
-    public function getCurrency()
+    public function getEn()
     {
-        return $this->container['currency'];
+        return $this->container['en'];
     }
 
     /**
-     * Sets currency
+     * Sets en
      *
-     * @param string $currency The currency of the price value specified in the `Value` property. The value is a three-letter ISO 4217 currency code, e.g. `EUR` for Euro or `USD` for US Dollar.
+     * @param string $en en
      *
      * @return self
      */
-    public function setCurrency($currency)
+    public function setEn($en)
     {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        if (is_null($en)) {
+            throw new \InvalidArgumentException('non-nullable en cannot be null');
         }
-        $this->container['currency'] = $currency;
+        $this->container['en'] = $en;
 
         return $this;
     }
