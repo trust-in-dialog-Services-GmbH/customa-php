@@ -2,6 +2,8 @@
 .php-cs-fixer.dist.php
 composer.json
 docs/Api/AuthApi.md
+docs/Api/CampaignApi.md
+docs/Api/CampaigngroupApi.md
 docs/Api/CategoryApi.md
 docs/Api/CustomerApi.md
 docs/Api/ProductApi.md
@@ -17,6 +19,10 @@ docs/Model/AuthLoginRequestV4.md
 docs/Model/AuthTokenResponseV3.md
 docs/Model/AuthTokenResponseV4.md
 docs/Model/BasicSearchResponse.md
+docs/Model/CampaignGroupSearchResponseV4.md
+docs/Model/CampaignGroupV4.md
+docs/Model/CampaignSearchResponseV4.md
+docs/Model/CampaignV4.md
 docs/Model/CategorySearchResponseV4.md
 docs/Model/CategoryV4.md
 docs/Model/Choice.md
@@ -94,6 +100,8 @@ docs/Model/TrafficRow.md
 docs/Model/TranslatedString.md
 git_push.sh
 lib/Api/AuthApi.php
+lib/Api/CampaignApi.php
+lib/Api/CampaigngroupApi.php
 lib/Api/CategoryApi.php
 lib/Api/CustomerApi.php
 lib/Api/ProductApi.php
@@ -113,6 +121,10 @@ lib/Model/AuthLoginRequestV4.php
 lib/Model/AuthTokenResponseV3.php
 lib/Model/AuthTokenResponseV4.php
 lib/Model/BasicSearchResponse.php
+lib/Model/CampaignGroupSearchResponseV4.php
+lib/Model/CampaignGroupV4.php
+lib/Model/CampaignSearchResponseV4.php
+lib/Model/CampaignV4.php
 lib/Model/CategorySearchResponseV4.php
 lib/Model/CategoryV4.php
 lib/Model/Choice.php
@@ -192,6 +204,8 @@ lib/Model/TranslatedString.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AuthApiTest.php
+test/Api/CampaignApiTest.php
+test/Api/CampaigngroupApiTest.php
 test/Api/CategoryApiTest.php
 test/Api/CustomerApiTest.php
 test/Api/ProductApiTest.php
@@ -207,6 +221,10 @@ test/Model/AuthLoginRequestV4Test.php
 test/Model/AuthTokenResponseV3Test.php
 test/Model/AuthTokenResponseV4Test.php
 test/Model/BasicSearchResponseTest.php
+test/Model/CampaignGroupSearchResponseV4Test.php
+test/Model/CampaignGroupV4Test.php
+test/Model/CampaignSearchResponseV4Test.php
+test/Model/CampaignV4Test.php
 test/Model/CategorySearchResponseV4Test.php
 test/Model/CategoryV4Test.php
 test/Model/ChoiceTest.php

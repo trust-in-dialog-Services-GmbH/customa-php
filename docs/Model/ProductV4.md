@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the product. |
 **manufacturer** | **string** | Manufacturer of the product. |
 **vendor** | **string** | Vendor of the product. |
-**category** | **string** | Category of the product. | [optional]
+**category** | **string** | Category of the product. Deprecated. Use &#39;Categories&#39; instead. | [optional]
+**categories** | **string[]** | Categories of the product. | [optional]
 **short_description** | **string** | Short description of the product. |
 **long_description** | **string** | Long description of the product. |
 **image_source** | **string** | Source URI of the product image. |
