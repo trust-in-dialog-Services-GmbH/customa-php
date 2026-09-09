@@ -10,6 +10,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 | [**receiptGetV3()**](ReceiptApi.md#receiptGetV3) | **GET** /api/v3/receipt/{id} | Retrieves a receipt by its ID. |
 | [**receiptGetV4()**](ReceiptApi.md#receiptGetV4) | **GET** /api/v4/receipt/{project}/{id} | Retrieves a receipt by its ID. |
 | [**receiptPatchV3()**](ReceiptApi.md#receiptPatchV3) | **PATCH** /api/v3/receipt/{id} | Partially updates an existing receipt with the given ID. |
+| [**receiptPatchV4()**](ReceiptApi.md#receiptPatchV4) | **PATCH** /api/v4/receipt/{project}/{id} | Partially updates an existing receipt with the given ID. |
 | [**receiptPostV3()**](ReceiptApi.md#receiptPostV3) | **POST** /api/v3/receipt | Creates a new receipt. |
 | [**receiptPostV4()**](ReceiptApi.md#receiptPostV4) | **POST** /api/v4/receipt/{project} | Creates a new receipt. |
 | [**receiptPutV3()**](ReceiptApi.md#receiptPutV3) | **PUT** /api/v3/receipt/{id} | Overwrites an existing receipt with the given ID. |
@@ -376,6 +377,74 @@ void (empty response body)
 ### Authorization
 
 [apiV3Token](../../README.md#apiV3Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `receiptPatchV4()`
+
+```php
+receiptPatchV4($project, $id, $receipt_v4_patch)
+```
+
+Partially updates an existing receipt with the given ID.
+
+The receipt must already exist. Only the fields included in the request body are changed; fields that are omitted keep their current value. To clear a nullable field, send it explicitly as `null`. Any receipt item that should be kept must be included in the request, as `ReceiptItems` is replaced as a whole when present.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$id = 'id_example'; // string
+$receipt_v4_patch = new \Tid\CustomaPHP\Model\ReceiptV4Patch(); // \Tid\CustomaPHP\Model\ReceiptV4Patch
+
+try {
+    $apiInstance->receiptPatchV4($project, $id, $receipt_v4_patch);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceiptApi->receiptPatchV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **id** | **string**|  | |
+| **receipt_v4_patch** | [**\Tid\CustomaPHP\Model\ReceiptV4Patch**](../Model/ReceiptV4Patch.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
 
 ### HTTP request headers
 

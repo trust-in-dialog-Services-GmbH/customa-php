@@ -6,6 +6,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 | ------------- | ------------- | ------------- |
 | [**categoryDeleteV4()**](CategoryApi.md#categoryDeleteV4) | **DELETE** /api/v4/category/{project}/{id} | Deletes a category by its ID. |
 | [**categoryGetV4()**](CategoryApi.md#categoryGetV4) | **GET** /api/v4/category/{project}/{id} | Retrieves a category by its ID. |
+| [**categoryPatchV4()**](CategoryApi.md#categoryPatchV4) | **PATCH** /api/v4/category/{project}/{id} | Partially updates an existing category with the given ID. |
 | [**categoryPostV4()**](CategoryApi.md#categoryPostV4) | **POST** /api/v4/category/{project} | Creates a new category. |
 | [**categoryPutV4()**](CategoryApi.md#categoryPutV4) | **PUT** /api/v4/category/{project}/{id} | Overwrites an existing category with the given ID. |
 | [**categorySearchV4()**](CategoryApi.md#categorySearchV4) | **POST** /api/v4/category/{project}/search | Searches for categories by the given filters. |
@@ -135,6 +136,74 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `categoryPatchV4()`
+
+```php
+categoryPatchV4($project, $id, $category_v4_patch)
+```
+
+Partially updates an existing category with the given ID.
+
+The category must already exist. Only the fields included in the request body are changed; fields that are omitted keep their current value. To clear a nullable field, send it explicitly as `null`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\CategoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$id = 'id_example'; // string
+$category_v4_patch = new \Tid\CustomaPHP\Model\CategoryV4Patch(); // \Tid\CustomaPHP\Model\CategoryV4Patch
+
+try {
+    $apiInstance->categoryPatchV4($project, $id, $category_v4_patch);
+} catch (Exception $e) {
+    echo 'Exception when calling CategoryApi->categoryPatchV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **id** | **string**|  | |
+| **category_v4_patch** | [**\Tid\CustomaPHP\Model\CategoryV4Patch**](../Model/CategoryV4Patch.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
