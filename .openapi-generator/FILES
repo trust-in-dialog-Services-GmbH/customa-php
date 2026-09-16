@@ -6,7 +6,9 @@ docs/Api/CampaignApi.md
 docs/Api/CampaigngroupApi.md
 docs/Api/CategoryApi.md
 docs/Api/CustomerApi.md
+docs/Api/CustomergroupApi.md
 docs/Api/HealthApi.md
+docs/Api/MarketplaceApi.md
 docs/Api/ProductApi.md
 docs/Api/ProjectApi.md
 docs/Api/ReceiptApi.md
@@ -15,6 +17,8 @@ docs/Api/SettingsApi.md
 docs/Api/StatsApi.md
 docs/Api/TrafficApi.md
 docs/Model/AdditionalField.md
+docs/Model/AdditionalFieldDefinition.md
+docs/Model/AdditionalFieldDefinitions.md
 docs/Model/AuthLoginRequestV3.md
 docs/Model/AuthLoginRequestV4.md
 docs/Model/AuthTokenResponseV3.md
@@ -30,6 +34,8 @@ docs/Model/CategoryV4Patch.md
 docs/Model/Choice.md
 docs/Model/ChoicesList.md
 docs/Model/Customer.md
+docs/Model/CustomerGroupSearchResponseV4.md
+docs/Model/CustomerGroupV4.md
 docs/Model/CustomerSearchResponse.md
 docs/Model/CustomerSearchResponseV4.md
 docs/Model/CustomerV4.md
@@ -55,7 +61,9 @@ docs/Model/HealthSourceV4.md
 docs/Model/ItemCreatedResponse.md
 docs/Model/ItemCreatedResponse2.md
 docs/Model/LegacySearchResponse.md
+docs/Model/MarketplaceSearchResponseV4.md
 docs/Model/MarketplaceSettingValueValue.md
+docs/Model/MarketplaceV4.md
 docs/Model/OAuthValidationRequest.md
 docs/Model/OAuthValidationResponse.md
 docs/Model/PaymentStatusV4.md
@@ -118,7 +126,9 @@ lib/Api/CampaignApi.php
 lib/Api/CampaigngroupApi.php
 lib/Api/CategoryApi.php
 lib/Api/CustomerApi.php
+lib/Api/CustomergroupApi.php
 lib/Api/HealthApi.php
+lib/Api/MarketplaceApi.php
 lib/Api/ProductApi.php
 lib/Api/ProjectApi.php
 lib/Api/ReceiptApi.php
@@ -131,6 +141,8 @@ lib/Configuration.php
 lib/FormDataProcessor.php
 lib/HeaderSelector.php
 lib/Model/AdditionalField.php
+lib/Model/AdditionalFieldDefinition.php
+lib/Model/AdditionalFieldDefinitions.php
 lib/Model/AuthLoginRequestV3.php
 lib/Model/AuthLoginRequestV4.php
 lib/Model/AuthTokenResponseV3.php
@@ -146,6 +158,8 @@ lib/Model/CategoryV4Patch.php
 lib/Model/Choice.php
 lib/Model/ChoicesList.php
 lib/Model/Customer.php
+lib/Model/CustomerGroupSearchResponseV4.php
+lib/Model/CustomerGroupV4.php
 lib/Model/CustomerSearchResponse.php
 lib/Model/CustomerSearchResponseV4.php
 lib/Model/CustomerV4.php
@@ -171,7 +185,9 @@ lib/Model/HealthSourceV4.php
 lib/Model/ItemCreatedResponse.php
 lib/Model/ItemCreatedResponse2.php
 lib/Model/LegacySearchResponse.php
+lib/Model/MarketplaceSearchResponseV4.php
 lib/Model/MarketplaceSettingValueValue.php
+lib/Model/MarketplaceV4.php
 lib/Model/ModelInterface.php
 lib/Model/OAuthValidationRequest.php
 lib/Model/OAuthValidationResponse.php
@@ -236,7 +252,9 @@ test/Api/CampaignApiTest.php
 test/Api/CampaigngroupApiTest.php
 test/Api/CategoryApiTest.php
 test/Api/CustomerApiTest.php
+test/Api/CustomergroupApiTest.php
 test/Api/HealthApiTest.php
+test/Api/MarketplaceApiTest.php
 test/Api/ProductApiTest.php
 test/Api/ProjectApiTest.php
 test/Api/ReceiptApiTest.php
@@ -244,6 +262,8 @@ test/Api/SegmentApiTest.php
 test/Api/SettingsApiTest.php
 test/Api/StatsApiTest.php
 test/Api/TrafficApiTest.php
+test/Model/AdditionalFieldDefinitionTest.php
+test/Model/AdditionalFieldDefinitionsTest.php
 test/Model/AdditionalFieldTest.php
 test/Model/AuthLoginRequestV3Test.php
 test/Model/AuthLoginRequestV4Test.php
@@ -259,6 +279,8 @@ test/Model/CategoryV4PatchTest.php
 test/Model/CategoryV4Test.php
 test/Model/ChoiceTest.php
 test/Model/ChoicesListTest.php
+test/Model/CustomerGroupSearchResponseV4Test.php
+test/Model/CustomerGroupV4Test.php
 test/Model/CustomerSearchResponseTest.php
 test/Model/CustomerSearchResponseV4Test.php
 test/Model/CustomerTest.php
@@ -285,7 +307,9 @@ test/Model/HealthSourceV4Test.php
 test/Model/ItemCreatedResponse2Test.php
 test/Model/ItemCreatedResponseTest.php
 test/Model/LegacySearchResponseTest.php
+test/Model/MarketplaceSearchResponseV4Test.php
 test/Model/MarketplaceSettingValueValueTest.php
+test/Model/MarketplaceV4Test.php
 test/Model/OAuthValidationRequestTest.php
 test/Model/OAuthValidationResponseTest.php
 test/Model/PaymentStatusV4Test.php

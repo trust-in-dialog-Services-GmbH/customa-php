@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** | ID of the campaign group. Set internally by Customa, any given value is ignored. | [optional]
 **name** | **string** | Name of the campaign group. |
 **referrer** | **string** | Referrer of the campaign group. |
+**parent** | **string** | ID of the parent campaign group, or null if this campaign group has no parent. | [optional]
 **campaigns** | **string[]** | IDs of the campaigns belonging to this campaign group. | [optional]
 **creation_date** | **\DateTime** | Creation Timestamp of the item. Set internally by Customa, any given value is ignored. | [optional]
 **modification_date** | **\DateTime** | Timestamp of the last change of the item in the database. Set internally by Customa, any given value is ignored. | [optional]

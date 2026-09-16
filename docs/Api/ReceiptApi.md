@@ -4,6 +4,7 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**receiptAdditionalfieldsV4()**](ReceiptApi.md#receiptAdditionalfieldsV4) | **GET** /api/v4/receipt/{project}/additionalfields | Returns the definitions of the additional fields available for receipts in this project. |
 | [**receiptDeleteV3()**](ReceiptApi.md#receiptDeleteV3) | **DELETE** /api/v3/receipt/{id} | Deletes a receipt by its ID. |
 | [**receiptDeleteV4()**](ReceiptApi.md#receiptDeleteV4) | **DELETE** /api/v4/receipt/{project}/{id} | Deletes a receipt by its ID. |
 | [**receiptFieldsV4()**](ReceiptApi.md#receiptFieldsV4) | **GET** /api/v4/receipt/{project}/fields | Returns a list of fields and allowed filters for receipt search. |
@@ -18,6 +19,69 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 | [**receiptSearchV3()**](ReceiptApi.md#receiptSearchV3) | **POST** /api/v3/receipt/search | Searches for receipts by the given filters. |
 | [**receiptSearchV4()**](ReceiptApi.md#receiptSearchV4) | **POST** /api/v4/receipt/{project}/search | Searches for receipts by the given filters. |
 
+
+## `receiptAdditionalfieldsV4()`
+
+```php
+receiptAdditionalfieldsV4($project): \Tid\CustomaPHP\Model\AdditionalFieldDefinitions
+```
+
+Returns the definitions of the additional fields available for receipts in this project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\ReceiptApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+
+try {
+    $result = $apiInstance->receiptAdditionalfieldsV4($project);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceiptApi->receiptAdditionalfieldsV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\AdditionalFieldDefinitions**](../Model/AdditionalFieldDefinitions.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `receiptDeleteV3()`
 
