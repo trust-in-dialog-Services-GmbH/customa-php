@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **receipt_status** | [**\Tid\CustomaPHP\Model\ReceiptStatusV4**](ReceiptStatusV4.md) |  |
 **payment_status** | [**\Tid\CustomaPHP\Model\PaymentStatusV4**](PaymentStatusV4.md) |  |
 **delivery_status** | [**\Tid\CustomaPHP\Model\DeliveryStatusV4**](DeliveryStatusV4.md) |  |
+**segment** | **string** | Segment of the customer at the time of purchase. Set internally by Customa, any given value is ignored. | [optional] [default to '']
 **items** | [**\Tid\CustomaPHP\Model\ReceiptItemV4[]**](ReceiptItemV4.md) | List of items in the receipt. | [optional]
 **additional_fields** | **array<string,string>** | Additional field data for the receipt. |
 **creation_date** | **\DateTime** | Creation Timestamp of the item. Set internally by Customa, any given value is ignored. | [optional]

@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **marketplace** | **string** | Marketplace of the customer. | [optional]
 **test_user** | **bool** |  | [optional]
 **newsletter** | **bool** |  | [optional]
-**segment** | **string** | Segment of the customer. Read-only, changes via the API will have no effect. | [optional]
+**segment** | **string** | Segment of the customer. Set internally by Customa, any given value is ignored. | [optional] [default to '']
 **creation_date** | **\DateTime** | Creation Timestamp of the item. Set internally by Customa, any given value is ignored. | [optional]
 **modification_date** | **\DateTime** | Timestamp of the last change of the item in the database. Set internally by Customa, any given value is ignored. | [optional]
 
