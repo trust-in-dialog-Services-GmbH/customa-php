@@ -17,6 +17,7 @@ docs/Api/SegmentApi.md
 docs/Api/SettingsApi.md
 docs/Api/StatsApi.md
 docs/Api/TrafficApi.md
+docs/Api/UsersettingsApi.md
 docs/Model/AdditionalField.md
 docs/Model/AdditionalFieldDefinition.md
 docs/Model/AdditionalFieldDefinitions.md
@@ -123,6 +124,7 @@ docs/Model/TrafficRequest.md
 docs/Model/TrafficResponse.md
 docs/Model/TrafficRow.md
 docs/Model/TranslatedString.md
+docs/Model/UserSettingV4.md
 git_push.sh
 lib/Api/AuthApi.php
 lib/Api/CampaignApi.php
@@ -140,6 +142,7 @@ lib/Api/SegmentApi.php
 lib/Api/SettingsApi.php
 lib/Api/StatsApi.php
 lib/Api/TrafficApi.php
+lib/Api/UsersettingsApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/FormDataProcessor.php
@@ -251,6 +254,7 @@ lib/Model/TrafficRequest.php
 lib/Model/TrafficResponse.php
 lib/Model/TrafficRow.php
 lib/Model/TranslatedString.php
+lib/Model/UserSettingV4.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AuthApiTest.php
@@ -269,6 +273,7 @@ test/Api/SegmentApiTest.php
 test/Api/SettingsApiTest.php
 test/Api/StatsApiTest.php
 test/Api/TrafficApiTest.php
+test/Api/UsersettingsApiTest.php
 test/Model/AdditionalFieldDefinitionTest.php
 test/Model/AdditionalFieldDefinitionsTest.php
 test/Model/AdditionalFieldTest.php
@@ -375,3 +380,4 @@ test/Model/TrafficRequestTest.php
 test/Model/TrafficResponseTest.php
 test/Model/TrafficRowTest.php
 test/Model/TranslatedStringTest.php
+test/Model/UserSettingV4Test.php
