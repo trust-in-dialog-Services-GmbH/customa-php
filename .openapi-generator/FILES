@@ -94,6 +94,7 @@ docs/Model/SearchRequest.md
 docs/Model/Segment.md
 docs/Model/SegmentCondition.md
 docs/Model/SegmentDefinition.md
+docs/Model/SegmentGroupsV4.md
 docs/Model/SegmentList.md
 docs/Model/SegmentMonetary.md
 docs/Model/SegmentRecency.md
@@ -224,6 +225,7 @@ lib/Model/SearchRequest.php
 lib/Model/Segment.php
 lib/Model/SegmentCondition.php
 lib/Model/SegmentDefinition.php
+lib/Model/SegmentGroupsV4.php
 lib/Model/SegmentList.php
 lib/Model/SegmentMonetary.php
 lib/Model/SegmentRecency.php
@@ -349,6 +351,7 @@ test/Model/SalutationTest.php
 test/Model/SearchRequestTest.php
 test/Model/SegmentConditionTest.php
 test/Model/SegmentDefinitionTest.php
+test/Model/SegmentGroupsV4Test.php
 test/Model/SegmentListTest.php
 test/Model/SegmentMonetaryTest.php
 test/Model/SegmentRecencyTest.php
