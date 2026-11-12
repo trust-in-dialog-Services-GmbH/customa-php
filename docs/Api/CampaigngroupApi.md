@@ -4,10 +4,78 @@ All URIs are relative to https://www.customa.biz, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**campaigngroupChildrenV4()**](CampaigngroupApi.md#campaigngroupChildrenV4) | **GET** /api/v4/campaigngroup/{project}/{id}/children | Retrieves the IDs of all descendants of a campaign group. |
 | [**campaigngroupFieldsV4()**](CampaigngroupApi.md#campaigngroupFieldsV4) | **GET** /api/v4/campaigngroup/{project}/fields | Returns a list of fields and allowed filters for campaign group search. |
 | [**campaigngroupGetV4()**](CampaigngroupApi.md#campaigngroupGetV4) | **GET** /api/v4/campaigngroup/{project}/{id} | Retrieves a campaign group by its ID. |
 | [**campaigngroupSearchV4()**](CampaigngroupApi.md#campaigngroupSearchV4) | **POST** /api/v4/campaigngroup/{project}/search | Searches for campaign groups by the given filters. |
 
+
+## `campaigngroupChildrenV4()`
+
+```php
+campaigngroupChildrenV4($project, $id): \Tid\CustomaPHP\Model\CampaignGroupChildrenV4
+```
+
+Retrieves the IDs of all descendants of a campaign group.
+
+The result contains the children, grandchildren and so on of the campaign group as a flat list. The campaign group itself is not part of the list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: apiV4BasicAuth
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: apiV4Token
+$config = Tid\CustomaPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tid\CustomaPHP\Api\CampaigngroupApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project = 'project_example'; // string
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->campaigngroupChildrenV4($project, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaigngroupApi->campaigngroupChildrenV4: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project** | **string**|  | |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\Tid\CustomaPHP\Model\CampaignGroupChildrenV4**](../Model/CampaignGroupChildrenV4.md)
+
+### Authorization
+
+[apiV4BasicAuth](../../README.md#apiV4BasicAuth), [apiV4Token](../../README.md#apiV4Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `campaigngroupFieldsV4()`
 
